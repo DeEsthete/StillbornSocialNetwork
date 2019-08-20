@@ -1,0 +1,5 @@
+C:\Users\ПавловЕ\Desktop\StillbornSocialNetwork\Stillborn.Domain\bin\Debug\netcoreapp2.1\Stillborn.Domain.deps.json
+C:\Users\ПавловЕ\Desktop\StillbornSocialNetwork\Stillborn.Domain\bin\Debug\netcoreapp2.1\Stillborn.Domain.dll
+C:\Users\ПавловЕ\Desktop\StillbornSocialNetwork\Stillborn.Domain\obj\Debug\netcoreapp2.1\Stillborn.Domain.csproj.CoreCompileInputs.cache
+C:\Users\ПавловЕ\Desktop\StillbornSocialNetwork\Stillborn.Domain\obj\Debug\netcoreapp2.1\Stillborn.Domain.AssemblyInfoInputs.cache
+C:\Users\ПавловЕ\Desktop\StillbornSocialNetwork\Stillborn.Domain\obj\Debug\netcoreapp2.1\Stillborn.Domain.AssemblyInfo.cs
