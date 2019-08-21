@@ -1,0 +1,9 @@
+C:\Users\ПавловЕ\Desktop\StillbornSocialNetwork\Stillborn.Models\bin\Debug\netcoreapp2.1\Stillborn.Models.deps.json
+C:\Users\ПавловЕ\Desktop\StillbornSocialNetwork\Stillborn.Models\bin\Debug\netcoreapp2.1\Stillborn.Models.dll
+C:\Users\ПавловЕ\Desktop\StillbornSocialNetwork\Stillborn.Models\bin\Debug\netcoreapp2.1\Stillborn.Models.pdb
+C:\Users\ПавловЕ\Desktop\StillbornSocialNetwork\Stillborn.Models\obj\Debug\netcoreapp2.1\Stillborn.Models.csprojAssemblyReference.cache
+C:\Users\ПавловЕ\Desktop\StillbornSocialNetwork\Stillborn.Models\obj\Debug\netcoreapp2.1\Stillborn.Models.csproj.CoreCompileInputs.cache
+C:\Users\ПавловЕ\Desktop\StillbornSocialNetwork\Stillborn.Models\obj\Debug\netcoreapp2.1\Stillborn.Models.AssemblyInfoInputs.cache
+C:\Users\ПавловЕ\Desktop\StillbornSocialNetwork\Stillborn.Models\obj\Debug\netcoreapp2.1\Stillborn.Models.AssemblyInfo.cs
+C:\Users\ПавловЕ\Desktop\StillbornSocialNetwork\Stillborn.Models\obj\Debug\netcoreapp2.1\Stillborn.Models.dll
+C:\Users\ПавловЕ\Desktop\StillbornSocialNetwork\Stillborn.Models\obj\Debug\netcoreapp2.1\Stillborn.Models.pdb
