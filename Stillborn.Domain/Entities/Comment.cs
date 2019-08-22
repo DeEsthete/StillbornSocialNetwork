@@ -7,18 +7,18 @@ namespace Stillborn.Domain.Entities
 {
     public class Comment : Entity
     {
-        public int PostId { get; set; }
+        public int? PostId { get; set; }
         public Post Post { get; set; }
 
-        public int SingleContentId { get; set; }
+        public int? SingleContentId { get; set; }
         public SingleContent SingleContent { get; set; }
 
-        public int ContentId { get; set; }
+        public int? ContentId { get; set; }
         public Content Content { get; set; }
 
         public string Text { get; set; }
 
-        public int MediaId { get; set; }
+        public int? MediaId { get; set; }
         public Media Media { get; set; }
 
         public int Likes { get; set; }

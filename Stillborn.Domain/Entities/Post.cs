@@ -12,7 +12,7 @@ namespace Stillborn.Domain.Entities
         public Wall Wall { get; set; }
 
         //Содержит
-        public int MediaId { get; set; }
+        public int? MediaId { get; set; }
         public Media Media { get; set; }
 
         public string Text { get; set; }
