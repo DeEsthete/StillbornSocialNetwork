@@ -1,0 +1,12 @@
+﻿:root {
+    --background-color: #423c6d;
+    --border-color: #7a839e;
+    --main-font-color: #fef5d8;
+    --second-font-color: #eadcc1;
+    --logo-font-color: #94b5c2;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--main-font-color);
+}
