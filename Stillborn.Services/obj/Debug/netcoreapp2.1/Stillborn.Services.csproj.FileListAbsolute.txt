@@ -1,9 +1,0 @@
-C:\Users\ПавловЕ\Desktop\StillbornSocialNetwork\Stillborn.Services\bin\Debug\netcoreapp2.1\Stillborn.Services.deps.json
-C:\Users\ПавловЕ\Desktop\StillbornSocialNetwork\Stillborn.Services\bin\Debug\netcoreapp2.1\Stillborn.Services.dll
-C:\Users\ПавловЕ\Desktop\StillbornSocialNetwork\Stillborn.Services\bin\Debug\netcoreapp2.1\Stillborn.Services.pdb
-C:\Users\ПавловЕ\Desktop\StillbornSocialNetwork\Stillborn.Services\obj\Debug\netcoreapp2.1\Stillborn.Services.csprojAssemblyReference.cache
-C:\Users\ПавловЕ\Desktop\StillbornSocialNetwork\Stillborn.Services\obj\Debug\netcoreapp2.1\Stillborn.Services.csproj.CoreCompileInputs.cache
-C:\Users\ПавловЕ\Desktop\StillbornSocialNetwork\Stillborn.Services\obj\Debug\netcoreapp2.1\Stillborn.Services.AssemblyInfoInputs.cache
-C:\Users\ПавловЕ\Desktop\StillbornSocialNetwork\Stillborn.Services\obj\Debug\netcoreapp2.1\Stillborn.Services.AssemblyInfo.cs
-C:\Users\ПавловЕ\Desktop\StillbornSocialNetwork\Stillborn.Services\obj\Debug\netcoreapp2.1\Stillborn.Services.dll
-C:\Users\ПавловЕ\Desktop\StillbornSocialNetwork\Stillborn.Services\obj\Debug\netcoreapp2.1\Stillborn.Services.pdb
