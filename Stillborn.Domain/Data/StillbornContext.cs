@@ -29,7 +29,6 @@ namespace Stillborn.Domain.Data
         public virtual DbSet<Member> Members { get; set; }
         public virtual DbSet<Message> Messages  { get; set; }
         public virtual DbSet<Post> Posts { get; set; }
-        public virtual DbSet<SingleContent> SingleContents { get; set; }
         public virtual DbSet<UserChatRoom> UserChatRooms { get; set; }
         public virtual DbSet<UserContact> UserContacts { get; set; }
         public virtual DbSet<Wall> Walls { get; set; }

@@ -10,9 +10,6 @@ namespace Stillborn.Domain.Entities
         public int? PostId { get; set; }
         public Post Post { get; set; }
 
-        public int? SingleContentId { get; set; }
-        public SingleContent SingleContent { get; set; }
-
         public int? ContentId { get; set; }
         public Content Content { get; set; }
 

@@ -7,9 +7,11 @@ namespace Stillborn.Domain.Entities
 {
     public class Group : Entity
     {
+        public int? MediaId { get; set; }
+        public Media Media { get; set; }
+
         public int WallId { get; set; }
         public Wall Wall { get; set; }
         public IEnumerable<Member> Members { get; set; }
-        public IEnumerable<SingleContent> Contents { get; set; }
     }
 }

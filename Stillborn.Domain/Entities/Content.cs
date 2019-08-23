@@ -8,7 +8,7 @@ namespace Stillborn.Domain.Entities
     public class Content : Entity
     {
         //Имеется в
-        public int MediaId { get; set; }
+        public int? MediaId { get; set; }
         public Media Media { get; set; }
 
         //Имеет
@@ -17,6 +17,8 @@ namespace Stillborn.Domain.Entities
         public int TypeId { get; set; }
         public ContentType Type { get; set; }
 
-        
+        public int Likes { get; set; }
+
+        public IEnumerable<Comment> Comments { get; set; }
     }
 }
