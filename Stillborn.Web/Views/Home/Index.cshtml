@@ -15,10 +15,38 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
- 
+
+    <link href="~/css/animate.min.css" rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+
     <link href="~/css/Master.css" rel="stylesheet" />
 </head>
 <body>
-    <span>Пам пам</span>
+    <div class="wrapper">
+        @*<span>Пам пам</span>*@
+        <div class="sideBar col-md-2">
+            <div>
+                <ul class="menu animated fadeInUp">
+                    <li class="menuLi logoLi">Stillborn</li>
+                    <li class="menuLi animated rotateInUpLeft"><img src="~/css/Img/home.svg" alt="Profile" class="sideBarIcon" /> Профиль</li>
+                    <li class="menuLi animated rotateInUpLeft"><img src="~/css/Img/chat.svg" alt="Profile" class="sideBarIcon" /> Сообщения</li>
+                    <li class="menuLi animated rotateInUpLeft"><img src="~/css/Img/user.svg" alt="Profile" class="sideBarIcon" /> Друзья</li>
+                    <li class="menuLi animated rotateInUpLeft"><img src="~/css/Img/users.svg" alt="Profile" class="sideBarIcon" /> Сообщества</li>
+                    <li class="menuLi animated rotateInUpLeft"><img src="~/css/Img/picture.svg" alt="Profile" class="sideBarIcon" /> Фотографии</li>
+                </ul>
+            </div>
+        </div>
+        <div class="content col-md-10 animated fadeInDown">
+            <div class="userProfileMainDiv">
+                <div class="userAvatar col-md-4">
+                    <img src="~/css/Img/user.svg" alt="Profile" class="userAvatarImg" />
+                </div>
+                <div class="userMainInfo col-md-8">
+                    <span class="userNickName"></span>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -23,4 +23,8 @@
     <ProjectReference Include="..\Stillborn.Domain\Stillborn.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Scripts\" />
+  </ItemGroup>
+
 </Project>
