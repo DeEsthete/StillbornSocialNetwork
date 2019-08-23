@@ -8,7 +8,7 @@ namespace Stillborn.Services.Interfaces
     {
         void AddEntity(T entity);
 
-        void RemoverEntity(int id);
+        void RemoveEntity(int id);
 
         void UpdateEntity(T entity);
 
