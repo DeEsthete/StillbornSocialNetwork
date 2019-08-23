@@ -53,7 +53,6 @@ namespace Stillborn.Services.Repositories
                 entity1.MediaId = entity.MediaId;
                 entity1.Text = entity.Text;
                 entity1.PostId = entity.PostId;
-                entity1.SingleContentId = entity.SingleContentId;
                 db.SaveChanges();
             }
         }

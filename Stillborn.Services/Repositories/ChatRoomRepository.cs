@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Stillborn.Services.Repositories
 {
-    class ChatRoomRepository : IRepository<ChatRoom>
+    public class ChatRoomRepository : IRepository<ChatRoom>
     {
         private readonly StillbornContext db = new StillbornContext();
         public void AddEntity(ChatRoom entity)

@@ -49,7 +49,6 @@ namespace Stillborn.Services.Repositories
             var entity1 = db.Groups.FirstOrDefault(s => s.Id == entity.Id);
             if (entity1 != null)
             {
-                entity1.Contents = entity.Contents;
                 entity1.Members = entity.Members;
                 entity1.WallId = entity.WallId;
                 db.SaveChanges();

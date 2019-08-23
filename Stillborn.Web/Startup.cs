@@ -10,6 +10,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Stillborn.Domain.Data;
+using Stillborn.Domain.Entities;
+using Stillborn.Services.Interfaces;
+using Stillborn.Services.Repositories;
 
 namespace Stillborn.Web
 {
@@ -21,6 +24,7 @@ namespace Stillborn.Web
 
             services.AddAuthorization();
             services.AddDbContext<StillbornContext>();
+            services.AddScoped<RepositoryService>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

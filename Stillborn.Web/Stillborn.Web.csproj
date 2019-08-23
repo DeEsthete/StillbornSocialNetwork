@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Stillborn.Domain\Stillborn.Domain.csproj" />
+    <ProjectReference Include="..\Stillborn.Services\Stillborn.Services.csproj" />
   </ItemGroup>
 
   <ItemGroup>
