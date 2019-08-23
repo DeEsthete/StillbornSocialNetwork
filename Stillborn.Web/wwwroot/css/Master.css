@@ -11,7 +11,7 @@
 body {
     background-color: var(--background-color);
     color: var(--main-font-color);
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .wrapper {
@@ -53,13 +53,14 @@ body {
     list-style-type: none;
     cursor: pointer;
 }
-.menuLi:hover{
-    background-color: var(--second-background-color);
-    border-radius: 15px;
-    color: var(--second-font-color);
-}
 
-.sideBarIcon{
+    .menuLi:hover {
+        background-color: var(--second-background-color);
+        border-radius: 15px;
+        color: var(--second-font-color);
+    }
+
+.sideBarIcon {
     width: 30px;
     height: 30px;
     margin-right: 6px;
@@ -68,5 +69,28 @@ body {
 /*#endregion*/
 
 /*#region UserProfile*/
+.userProfileMainDiv {
+    height: 400px;
+}
 
+.userAvatar {
+    height: 400px;
+    width: 300px;
+    padding: unset;
+    float: left;
+}
+
+.userAvatarImg {
+    height: 400px;
+    width: 300px;
+}
+
+.userMainInfo {
+    margin-left: 10px;
+    float: left;
+}
+.userNickName{
+    font-size: 26px;
+    border-bottom: 1px solid var(--border-color);
+}
 /*#endregion*/
