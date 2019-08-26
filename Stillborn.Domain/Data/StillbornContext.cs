@@ -30,17 +30,14 @@ namespace Stillborn.Domain.Data
         public virtual DbSet<GroupRole> GroupRoles { get; set; }//*
         public virtual DbSet<Group> Groups { get; set; }
         public virtual DbSet<Member> Members { get; set; } // нужен UserId -
-        
+
         public virtual DbSet<UserChatRoom> UserChatRooms { get; set; }//нужен UserId-
         public virtual DbSet<UserContact> UserContacts { get; set; }//нужен UserId-
 
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            using (StillbornDBInitializer initializer = new StillbornDBInitializer())
-            {
-                initializer.Seed(builder);
-            }
+                builder.Seed();
         }
     }
 }

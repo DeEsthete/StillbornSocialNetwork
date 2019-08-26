@@ -4,15 +4,9 @@ using System;
 
 namespace Stillborn.Domain.Data
 {
-    public class StillbornDBInitializer : IDisposable
+    public static class StillbornDBInitializer
     {
-
-        public void Dispose()
-        {
-            this.Dispose();
-        }
-
-        public void Seed(ModelBuilder modelBuilder)
+        public static void Seed(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ContentType>().HasData(
                 new ContentType() { Id = 1, Name = "Image", CreationDate = GetRandomCreationDateTime() },
