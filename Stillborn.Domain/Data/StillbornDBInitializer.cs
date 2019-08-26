@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Stillborn.Domain.Entities;
 using System;
 
@@ -6,6 +7,7 @@ namespace Stillborn.Domain.Data
 {
     public static class StillbornDBInitializer
     {
+
         public static void Seed(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<MediaType>().HasData(
@@ -15,12 +17,12 @@ namespace Stillborn.Domain.Data
                 new MediaType() { Id = 4, Name = "Text", CreationDate = GetCreationDateTime() }
                 );
 
-            //modelBuilder.Entity<Content>().HasData(
-            //    new Content() { Id = 1, CreationDate = GetRandomCreationDateTime() },
-            //    new Content() { Id = 2, CreationDate = GetRandomCreationDateTime() },
-            //    new Content() { Id = 3, CreationDate = GetRandomCreationDateTime() },
-            //    new Content() { Id = 4, CreationDate = GetRandomCreationDateTime() }
-            //    );
+            modelBuilder.Entity<Content>().HasData(
+                new Content() { Id = 1, CreationDate = GetCreationDateTime() },
+                new Content() { Id = 2, CreationDate = GetCreationDateTime() },
+                new Content() { Id = 3, CreationDate = GetCreationDateTime() },
+                new Content() { Id = 4, CreationDate = GetCreationDateTime() }
+                );
 
             //лучше вместо имени Content использовать Media
             //modelBuilder.Entity<Media>().HasData(
@@ -29,11 +31,11 @@ namespace Stillborn.Domain.Data
             //    new Media() {  ContentId = 3, CreationDate = GetRandomCreationDateTime(), Likes = 4, TypeId = 3 }
             //    );
             //**************
-            //modelBuilder.Entity<Wall>().HasData(
-            //    new Wall() { Id = 1, CreationDate = GetRandomCreationDateTime() },
-            //    new Wall() { Id = 2, CreationDate = GetRandomCreationDateTime() },
-            //    new Wall() { Id = 3, CreationDate = GetRandomCreationDateTime() }
-            //    );
+            modelBuilder.Entity<Wall>().HasData(
+                new Wall() { Id = 1, CreationDate = GetCreationDateTime() },
+                new Wall() { Id = 2, CreationDate = GetCreationDateTime() },
+                new Wall() { Id = 3, CreationDate = GetCreationDateTime() }
+                );;
 
             //modelBuilder.Entity<Post>().HasData(
             //    new Post() { Id=1, WallId = 1, CreationDate = GetRandomCreationDateTime(), Text = "First Post", Likes = 1},
