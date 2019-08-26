@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Stillborn.Domain.Entities
 {
-    public class Media : Entity
+    public class Content : Entity
     {
-        public IEnumerable<Content> Contents { get; set; }
+        public IEnumerable<Media> Media { get; set; }
     }
 }

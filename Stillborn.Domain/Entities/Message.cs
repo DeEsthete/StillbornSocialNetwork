@@ -17,7 +17,7 @@ namespace Stillborn.Domain.Entities
 
         public string Text { get; set; }
 
-        public int? MediaId { get; set; }
-        public Media Media { get; set; }
+        public int? ContentId { get; set; }
+        public Content Content { get; set; }
     }
 }

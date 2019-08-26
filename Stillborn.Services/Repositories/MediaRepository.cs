@@ -8,34 +8,34 @@ using System.Text;
 
 namespace Stillborn.Services.Repositories
 {
-    public class MediaRepository:IRepository<Media>
+    public class MediaRepository:IRepository<Content>
     {
         private readonly StillbornContext db = new StillbornContext();
 
-        public void AddEntity(Media entity)
+        public void AddEntity(Content entity)
         {
             if (entity != null)
             {
                 entity.CreationDate = DateTime.Now;
                 entity.IsDeleted = false;
-                db.Medias.Add(entity);
+                db.Content.Add(entity);
                 db.SaveChanges();
             }
         }
 
-        public IEnumerable<Media> GetAll()
+        public IEnumerable<Content> GetAll()
         {
-            return db.Medias;
+            return db.Content;
         }
 
-        public Media GetEntity(int id)
+        public Content GetEntity(int id)
         {
-            return db.Medias.FirstOrDefault(i => i.Id == id);
+            return db.Content.FirstOrDefault(i => i.Id == id);
         }
 
         public void RemoveEntity(int id)
         {
-            var entity = db.Medias.FirstOrDefault(s => s.Id == id);
+            var entity = db.Content.FirstOrDefault(s => s.Id == id);
             if (entity != null)
             {
                 entity.IsDeleted = true;
@@ -44,12 +44,12 @@ namespace Stillborn.Services.Repositories
             }
         }
 
-        public void UpdateEntity(Media entity)
+        public void UpdateEntity(Content entity)
         {
-            var entity1 = db.Medias.FirstOrDefault(s => s.Id == entity.Id);
+            var entity1 = db.Content.FirstOrDefault(s => s.Id == entity.Id);
             if (entity1 != null)
             {
-                entity1.Contents = entity.Contents;
+                entity1.Media = entity.Media;
                 db.SaveChanges();
             }
         }

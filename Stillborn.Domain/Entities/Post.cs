@@ -12,8 +12,8 @@ namespace Stillborn.Domain.Entities
         public Wall Wall { get; set; }
 
         //Содержит
-        public int? MediaId { get; set; }
-        public Media Media { get; set; }
+        public int? ContentId { get; set; }
+        public Content Content { get; set; }
 
         public string Text { get; set; }
         public int Likes { get; set; }

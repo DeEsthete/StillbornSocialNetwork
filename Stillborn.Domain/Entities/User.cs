@@ -13,8 +13,8 @@ namespace Stillborn.Domain.Entities
         public int WallId { get; set; }
         public Wall Wall { get; set; }
 
-        public int MediaId { get; set; }
-        public Media Media { get; set; }
+        public int ContentId { get; set; }
+        public Content Content { get; set; }
 
         public IEnumerable<UserChatRoom> ChatRooms { get; set; }
         public IEnumerable<Member> Groups { get; set; }

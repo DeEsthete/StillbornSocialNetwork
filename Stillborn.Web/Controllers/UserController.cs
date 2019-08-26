@@ -13,49 +13,49 @@ namespace Stillborn.Web.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly UserManager<User> _userManager;
+        //private readonly UserManager<User> _userManager;
 
-        public UserController(UserManager<User> userManager)
-        {
-            this._userManager = userManager;
-        }
+        //public UserController(UserManager<User> userManager)
+        //{
+        //    this._userManager = userManager;
+        //}
 
-        //Отдать
-        [HttpGet("{id}")]
-        public IActionResult Get(string id)
-        {
-            if (String.IsNullOrEmpty(id))
-            {
-                return Ok(_userManager.Users.ToList());
-            }
-            else
-            {
-                return Ok(_userManager.FindByIdAsync(id));
-            }
-        }
+        ////Отдать
+        //[HttpGet("{id}")]
+        //public IActionResult Get(string id)
+        //{
+        //    if (String.IsNullOrEmpty(id))
+        //    {
+        //        return Ok(_userManager.Users.ToList());
+        //    }
+        //    else
+        //    {
+        //        return Ok(_userManager.FindByIdAsync(id));
+        //    }
+        //}
 
-        //Добавить
-        [HttpPost]
-        public IActionResult Post([FromBody]User user)
-        {
-            if (ModelState.IsValid)
-            {
-                _userManager.CreateAsync(user);
-                return Ok();
-            }
-            return BadRequest();
-        }
+        ////Добавить
+        //[HttpPost]
+        //public IActionResult Post([FromBody]User user)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _userManager.CreateAsync(user);
+        //        return Ok();
+        //    }
+        //    return BadRequest();
+        //}
 
-        //Обновить
-        [HttpPut("{id}")]
-        public IActionResult Put([FromBody]User user)
-        {
-            if (ModelState.IsValid)
-            {
-                _userManager.UpdateAsync(user);
-                return Ok();
-            }
-            return BadRequest();
-        }
+        ////Обновить
+        //[HttpPut("{id}")]
+        //public IActionResult Put([FromBody]User user)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _userManager.UpdateAsync(user);
+        //        return Ok();
+        //    }
+        //    return BadRequest();
+        //}
     }
 }

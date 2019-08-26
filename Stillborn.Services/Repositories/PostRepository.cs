@@ -50,7 +50,7 @@ namespace Stillborn.Services.Repositories
             {
                 entity1.Comments = entity.Comments; 
                 entity1.Likes = entity.Likes;
-                entity1.MediaId = entity.MediaId;
+                entity1.ContentId = entity.ContentId;
                 entity1.Text = entity.Text;
                 entity1.WallId = entity.WallId;
                 db.SaveChanges();

@@ -50,7 +50,7 @@ namespace Stillborn.Services.Repositories
             if (entity1 != null)
             {
                 entity1.ChatRoomId = entity.ChatRoomId;
-                entity1.MediaId = entity.MediaId;
+                entity1.ContentId = entity.ContentId;
                 entity1.SenderId = entity.SenderId;
                 entity1.Text = entity.Text;
                 db.SaveChanges();

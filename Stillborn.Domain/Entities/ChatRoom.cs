@@ -6,7 +6,7 @@ namespace Stillborn.Domain.Entities
 {
     public class ChatRoom : Entity
     {
-        public int CreatorId { get; set; }
+        public string CreatorId { get; set; }
         public User Creator { get; set; }
 
         public IEnumerable<UserChatRoom> Users { get; set; }

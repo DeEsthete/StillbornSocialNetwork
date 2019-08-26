@@ -8,21 +8,21 @@ using System.Text;
 
 namespace Stillborn.Services.Repositories
 {
-    public class ContentRepository:IRepository<Content>
+    public class ContentRepository:IRepository<Media>
     {
         private readonly StillbornContext db = new StillbornContext();
 
-        public void AddEntity(Content entity)
+        public void AddEntity(Media entity)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Content> GetAll()
+        public IEnumerable<Media> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public Content GetEntity(int id)
+        public Media GetEntity(int id)
         {
             throw new NotImplementedException();
         }
@@ -32,7 +32,7 @@ namespace Stillborn.Services.Repositories
             throw new NotImplementedException();
         }
 
-        public void UpdateEntity(Content entity)
+        public void UpdateEntity(Media entity)
         {
             throw new NotImplementedException();
         }

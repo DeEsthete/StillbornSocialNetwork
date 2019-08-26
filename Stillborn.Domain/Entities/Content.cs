@@ -5,17 +5,17 @@ using System.Text;
 
 namespace Stillborn.Domain.Entities
 {
-    public class Content : Entity
+    public class Media : Entity
     {
         //Имеется в
-        public int? MediaId { get; set; }
-        public Media Media { get; set; }
+        public int? ContentId { get; set; }
+        public Content Content { get; set; }
 
         //Имеет
         public byte[] Bytes { get; set; }
 
         public int TypeId { get; set; }
-        public ContentType Type { get; set; }
+        public MediaType Type { get; set; }
 
         public int Likes { get; set; }
 

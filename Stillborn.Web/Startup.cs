@@ -24,6 +24,9 @@ namespace Stillborn.Web
 
             services.AddAuthorization();
             services.AddDbContext<StillbornContext>();
+            services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<StillbornContext>();
+
             services.AddScoped<RepositoryService>();
             services.AddScoped<UserManager<User>>();
         }

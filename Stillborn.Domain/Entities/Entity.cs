@@ -7,7 +7,6 @@ namespace Stillborn.Domain.Entities
 {
     public class Entity
     {
-        [Key]
         public int Id { get; set; }
         public bool IsDeleted { get; set; } = false;
         public DateTime CreationDate { get; set; }
