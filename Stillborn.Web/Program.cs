@@ -15,8 +15,6 @@ namespace Stillborn.Web
     {
         public static void Main(string[] args)
         {
-            StillbornContext context = new StillbornContext();
-            context.Users.ToList();
             CreateWebHostBuilder(args).Build().Run();
         }
 
