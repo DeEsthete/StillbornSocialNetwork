@@ -25,6 +25,7 @@ namespace Stillborn.Web
             services.AddAuthorization();
             services.AddDbContext<StillbornContext>();
             services.AddScoped<RepositoryService>();
+            services.AddScoped<UserManager<User>>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -38,6 +39,10 @@ namespace Stillborn.Web
 
             app.UseMvc(routes =>
             {
+                routes.MapRoute(
+                    name: "api",
+                    template: "api/{controller}/{action}/{id?}");
+
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
