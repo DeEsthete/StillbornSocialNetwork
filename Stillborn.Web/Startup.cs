@@ -18,7 +18,7 @@ namespace Stillborn.Web
 {
     public class Startup
     {
-        public void ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)//injection
         {
             services.AddMvc();
 
