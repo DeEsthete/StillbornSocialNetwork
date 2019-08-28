@@ -52,12 +52,14 @@ body {
     margin-top: 17px;
     list-style-type: none;
     cursor: pointer;
+    transition: 0.3s;
 }
 
     .menuLi:hover {
         background-color: var(--second-background-color);
         border-radius: 15px;
         color: var(--second-font-color);
+        transition: 0.3s;
     }
 
 .sideBarIcon {

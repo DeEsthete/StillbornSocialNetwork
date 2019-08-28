@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Stillborn.Domain\Stillborn.Domain.csproj" />
+    <ProjectReference Include="..\Stillborn.Models\Stillborn.Models.csproj" />
   </ItemGroup>
 
 </Project>
