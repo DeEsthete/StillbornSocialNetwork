@@ -7,11 +7,11 @@ namespace Stillborn.Services.Interfaces
 {
     public interface IGroupService
     {
-        bool JoinGroup(string userId, int groupId);
-        bool LeaveGroup(string userId, int groupId);
+        void JoinGroup(string userId, int groupId);
+        void LeaveGroup(string userId, int groupId);
         IEnumerable<Post> GetPosts(int id);
-        bool AddPost(string groupId, Post post);
+        void AddPost(string groupId, Post post);
         Content GetContent(int id);
-        bool SetRole(string userId, int groupId, string roleName);
+        void SetRole(string userId, int groupId, string roleName);
     }
 }

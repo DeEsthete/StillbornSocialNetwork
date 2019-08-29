@@ -7,8 +7,9 @@ namespace Stillborn.Services.Interfaces
 {
     public interface IContentService
     {
-        MediaType GenerateMediaType(string type);
+        MediaType GenerateMediaType(int typeId);
         Media GenerateMedia(byte[] Bytes,int typeId);
-        Content GenerateContent(IEnumerable<Media> content);
+        Content GenerateContent();
+        void AddMediaInContent(int mediaId,int contentId);
     }
 }
