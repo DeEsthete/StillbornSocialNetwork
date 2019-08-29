@@ -13,6 +13,7 @@ using Stillborn.Domain.Data;
 using Stillborn.Domain.Entities;
 using Stillborn.Services.Interfaces;
 using Stillborn.Services.Repositories;
+using Stillborn.Services.Services;
 
 namespace Stillborn.Web
 {
@@ -21,14 +22,12 @@ namespace Stillborn.Web
         public void ConfigureServices(IServiceCollection services)//injection
         {
             services.AddMvc();
-
             services.AddAuthorization();
             services.AddDbContext<StillbornContext>();
             services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<StillbornContext>();
-
             services.AddScoped<RepositoryService>();
-            services.AddScoped<UserManager<User>>();
+            services.AddHostedService<DBFillHostedService>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
