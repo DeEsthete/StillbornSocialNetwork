@@ -8,7 +8,14 @@ namespace Stillborn.Domain.Data
     {
         public StillbornContext()
         {
-            if (Database.EnsureCreated()) return;
+            try
+            {
+                Database.EnsureCreated();
+            }
+            catch
+            {
+                Database.ExecuteSqlCommand("DROP DATABASE StillbornDb");
+            }
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -23,16 +30,16 @@ namespace Stillborn.Domain.Data
         public DbSet<Post> Posts { get; set; }//**
         public DbSet<Comment> Comments { get; set; }//**
         //*************
-        public DbSet<ChatRoom> ChatRooms { get; set; }
-        public DbSet<Message> Messages { get; set; }
+        public DbSet<ChatRoom> ChatRooms { get; set; }//**
+        public DbSet<Message> Messages { get; set; }//**
         //*************
         public DbSet<ContactType> ContactTypes { get; set; }//**
         public DbSet<GroupRole> GroupRoles { get; set; }//**
-        public DbSet<Group> Groups { get; set; }
-        public DbSet<Member> Members { get; set; } 
+        public DbSet<Group> Groups { get; set; }//**
+        public DbSet<Member> Members { get; set; } //**
 
-        public DbSet<UserChatRoom> UserChatRooms { get; set; }
-        public DbSet<UserContact> UserContacts { get; set; }
+        public DbSet<UserChatRoom> UserChatRooms { get; set; }//**
+        public DbSet<UserContact> UserContacts { get; set; }//**
 
 
         protected override void OnModelCreating(ModelBuilder builder)

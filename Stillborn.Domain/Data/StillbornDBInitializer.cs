@@ -18,8 +18,9 @@ namespace Stillborn.Domain.Data
                 );
 
             modelBuilder.Entity<ContactType>().HasData(
-                new ContactType() { Id = 1, Name = "Friend", CreationDate=GetCreationDateTime() },
-                new ContactType() { Id = 2, Name = "Follower", CreationDate=GetCreationDateTime() }
+                new ContactType() { Id = 1, Name = "Friend", CreationDate = GetCreationDateTime() },
+                new ContactType() { Id = 2, Name = "Follower", CreationDate = GetCreationDateTime() },
+                new ContactType() { Id = 3, Name = "Blocked", CreationDate = GetCreationDateTime() }
                 );
 
             modelBuilder.Entity<GroupRole>().HasData(
@@ -45,7 +46,7 @@ namespace Stillborn.Domain.Data
         private static DateTime GetCreationDateTime()
         {
             Random random = new Random();
-            int daysAgo = random.Next(-365*2, 0);
+            int daysAgo = random.Next(-365 * 2, 0);
             var date = DateTime.UtcNow.AddDays(daysAgo);
             return date;
         }

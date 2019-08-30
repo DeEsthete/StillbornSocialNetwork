@@ -12,10 +12,10 @@ namespace Stillborn.Domain.Entities
         public ChatRoom ChatRoom { get; set; }
 
         //Имеет
-        public int SenderId { get; set; }
+        public string SenderId { get; set; }
         public User Sender { get; set; }
 
-        public string Text { get; set; }
+        public string Text { get; set; }//не нужное поле / text лучше сделать Media / в Message находится Content с разными типами Media
 
         public int? ContentId { get; set; }
         public Content Content { get; set; }
