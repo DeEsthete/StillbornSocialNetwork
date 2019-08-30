@@ -19,8 +19,8 @@ namespace Stillborn.Domain.Entities
         public IEnumerable<UserChatRoom> ChatRooms { get; set; }
         public IEnumerable<Member> Groups { get; set; }
 
-        public bool IsDeleted { get; set; }
-        public DateTime CreationDate { get; set; }
+        public bool IsDeleted { get; set; } = false;
+        public DateTime CreationDate { get; set; } = DateTime.UtcNow;
         public DateTime? DeletedDate { get; set; }
     }
 }

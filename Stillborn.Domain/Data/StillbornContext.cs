@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Stillborn.Domain.Entities;
+using System;
 
 namespace Stillborn.Domain.Data
 {
@@ -14,7 +15,7 @@ namespace Stillborn.Domain.Data
             }
             catch
             {
-                Database.ExecuteSqlCommand("DROP DATABASE StillbornDb");
+
             }
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -44,7 +45,6 @@ namespace Stillborn.Domain.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            
             builder.Seed();
             base.OnModelCreating(builder);
         }
