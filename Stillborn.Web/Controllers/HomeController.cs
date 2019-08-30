@@ -18,7 +18,6 @@ namespace Stillborn.Web.Controllers
         }
         public IActionResult Index()
         {
-            service.GetRepository<ChatRoom>().AddEntity(new ChatRoom { });
             return View();
         }
     }

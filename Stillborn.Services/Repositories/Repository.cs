@@ -20,7 +20,6 @@ namespace Stillborn.Services.Repositories
         {
             if (entity != null)
             {
-                entity.CreationDate = DateTime.UtcNow;
                 _context.Set<T>().Add(entity);
                 _context.SaveChanges();
             }

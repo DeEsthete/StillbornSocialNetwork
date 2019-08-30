@@ -8,7 +8,7 @@ namespace Stillborn.Domain.Data
     {
         public StillbornContext()
         {
-            Database.EnsureCreated();
+            if (Database.EnsureCreated()) return;
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
