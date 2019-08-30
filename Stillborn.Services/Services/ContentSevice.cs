@@ -32,11 +32,6 @@ namespace Stillborn.Services.Services
             return media;
         }
 
-        public MediaType GenerateMediaType(int typeId)
-        {
-            return _service.GetRepository<MediaType>().GetEntity(typeId);
-        }
-
         void IContentService.AddMediaInContent(int mediaId, int contentId)
         {
             Media media = _service.GetRepository<Media>().GetEntity(mediaId);

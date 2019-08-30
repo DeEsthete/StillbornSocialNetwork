@@ -14,7 +14,7 @@ namespace Stillborn.Domain.Data
             }
             catch
             {
-                Database.ExecuteSqlCommand("DROP DATABASE StillbornDb");
+                
             }
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
