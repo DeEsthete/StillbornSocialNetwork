@@ -24,7 +24,12 @@ namespace Stillborn.Services.Services
 
         public Media GenerateMedia(byte[] Bytes, int typeId)
         {
-            throw new NotImplementedException();
+            Media media = new Media();
+            media.Bytes = Bytes;
+            media.Likes = 0;
+            media.TypeId = typeId;
+            _service.GetRepository<Media>().AddEntity(media);
+            return media;
         }
 
         public MediaType GenerateMediaType(int typeId)
@@ -34,7 +39,9 @@ namespace Stillborn.Services.Services
 
         void IContentService.AddMediaInContent(int mediaId, int contentId)
         {
-            throw new NotImplementedException();
+            Media media = _service.GetRepository<Media>().GetEntity(mediaId);
+            media.ContentId = _service.GetRepository<Content>().GetEntity(contentId).Id;
+            _service.GetRepository<Media>().UpdateEntity(media);
         }
     }
 }
