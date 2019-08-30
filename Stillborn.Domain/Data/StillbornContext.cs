@@ -8,7 +8,14 @@ namespace Stillborn.Domain.Data
     {
         public StillbornContext()
         {
-            if (Database.EnsureCreated()) return;
+            try
+            {
+                Database.EnsureCreated();
+            }
+            catch
+            {
+                Database.ExecuteSqlCommand("DROP DATABASE StillbornDb");
+            }
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -37,7 +44,6 @@ namespace Stillborn.Domain.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            
             builder.Seed();
             base.OnModelCreating(builder);
         }
