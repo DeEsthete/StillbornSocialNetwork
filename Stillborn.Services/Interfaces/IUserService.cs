@@ -19,5 +19,7 @@ namespace Stillborn.Services.Interfaces
         Wall GetUserWall(string id);
         Content GetUserContent(string id);
         void AddContent(Content content);
+        void Authorization(AuthorizationUserViewModel user);
+        void Registration(RegistrationUserViewModel user);
     }
 }

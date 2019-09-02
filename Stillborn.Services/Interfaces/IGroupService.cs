@@ -11,7 +11,7 @@ namespace Stillborn.Services.Interfaces
         void LeaveGroup(string userId, int groupId);
         IEnumerable<Post> GetPosts(int id);
         void AddPost(string groupId, Post post);
-        Content GetContent(int groupId);
+        Content GetContent(int id);
         void SetRole(string userId, int groupId, string roleName);
         int CreateGroup(int? contentId, int WallId);
     }

@@ -10,7 +10,6 @@ namespace Stillborn.Services.Interfaces
         void AddUserToChatRoom(string userId, int chatGroupId);
         void LeaveChatRoom(string userId, int chatGroupId);
         void CreateChatRoom(string creatorId, string name);
-        void DeleteChatRoom(int chatGroupId);
         IEnumerable<User> GetChatRoomUsers(int chatRoomId);
         IEnumerable<Message> GetChatRoomMessages(int chatRoomId);
         void SendMessage(int senderId,int contentId);
