@@ -1,15 +1,14 @@
-﻿using Microsoft.AspNetCore.SignalR;
-using Stillborn.Domain.Entities;
+﻿using Stillborn.Domain.Entities;
 using Stillborn.Services.Interfaces;
 using Stillborn.Services.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Stillborn.Services.Services
 {
-    public class ChatRoomService :Hub,IChatRoomService
+    public class ChatRoomService :IChatRoomService
     {
         private readonly RepositoryService _service;
         private readonly UserRepository _userContext = new UserRepository();
@@ -35,12 +34,7 @@ namespace Stillborn.Services.Services
 
         public IEnumerable<User> GetChatRoomUsers(int chatRoomId)
         {
-            List<User> users = new List<User>();
-            foreach(UserChatRoom user in _service.GetRepository<ChatRoom>().GetEntity(chatRoomId).Users)
-            {
-                users.Add(_userContext.GetEntity(user.UserId));
-            }
-            return users;
+            return _service.GetRepository<ChatRoom>().GetEntity(chatRoomId).Users.Select(u => u.User).ToList();
         }
 
         public void LeaveChatRoom(string userId, int chatGroupId)
@@ -52,16 +46,6 @@ namespace Stillborn.Services.Services
                     _service.GetRepository<UserChatRoom>().RemoveEntity(userChat.Id);
                 }
             }
-        }
-
-        public async Task Send(string senderId, int contentId,string text)
-        {
-            Message message = new Message();
-            message.SenderId = senderId;
-            message.Text = text;
-            message.ContentId = contentId;
-            //Чат рум где задавать
-            await this.Clients.All.SendAsync("Send", message);
-        }
+        } 
     }
 }
