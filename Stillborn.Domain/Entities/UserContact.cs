@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Stillborn.Domain.Entities
 {
+    /// <summary>
+    /// for link mainuser to other
+    /// </summary>
     public class UserContact : Entity
     {
         public string MainUserId { get; set; }

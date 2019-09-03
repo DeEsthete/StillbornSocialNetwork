@@ -3,6 +3,7 @@ using Stillborn.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Stillborn.Services.Interfaces
 {
@@ -12,10 +13,10 @@ namespace Stillborn.Services.Interfaces
         void SetUserInfo(UserInfoViewModel info);
         IEnumerable<User> GetUserFriends(string id);
         //кто добавляет, кого добавляет
-        void AddUserFrind(string mainUserId, string secondUserId);
+        void AddUserFriend(string mainUserId, string secondUserId);
         IEnumerable<User> GetUserBlackList(string id);
         //кто добавляет, кого добавляет
-        void AddUserBlackList(string mainUserId, string secondUserId);
+        Task AddToBlackListAsync(string mainUserId, string secondUserId);
         Wall GetUserWall(string id);
         Content GetUserContent(string id);
         void AddContent(Content content);

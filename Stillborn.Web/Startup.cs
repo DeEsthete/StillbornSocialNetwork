@@ -37,7 +37,7 @@ namespace Stillborn.Web
                 options.Password.RequiredUniqueChars = 2;
             });
             services.AddScoped<RepositoryService>();
-            services.AddScoped<UserRepository>();
+            //services.AddScoped<UserRepository>(); удален / нужно работать через usermanager
             services.AddHostedService<DBFillHostedService>();
             services.AddSignalR();
         }
@@ -64,10 +64,6 @@ namespace Stillborn.Web
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            //app.Run(async (context) =>
-            //{
-            //    await context.Response.WriteAsync("Hello World!");
-            //});
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.SignalR;
 using Stillborn.Domain.Entities;
 using Stillborn.Services.Interfaces;
 using Stillborn.Services.Repositories;
@@ -12,10 +13,12 @@ namespace Stillborn.Services.Services
     public class ChatRoomService :Hub,IChatRoomService
     {
         private readonly RepositoryService _service;
-        private readonly UserRepository _userContext = new UserRepository();
-        public ChatRoomService(RepositoryService service)
+        private readonly UserManager<User> _userManager;
+
+        public ChatRoomService(RepositoryService service, UserManager<User> userManager)
         {
             _service = service;
+            _userManager = userManager;
         }
         public void AddUserToChatRoom(string userId, int chatGroupId)
         {
@@ -33,12 +36,12 @@ namespace Stillborn.Services.Services
 
         }
 
-        public IEnumerable<User> GetChatRoomUsers(int chatRoomId)
+        public async Task<IEnumerable<User>> GetChatRoomUsersAsync(int chatRoomId)
         {
             List<User> users = new List<User>();
             foreach(UserChatRoom user in _service.GetRepository<ChatRoom>().GetEntity(chatRoomId).Users)
             {
-                users.Add(_userContext.GetEntity(user.UserId));
+                users.Add( await _userManager.FindByIdAsync(user.UserId));
             }
             return users;
         }

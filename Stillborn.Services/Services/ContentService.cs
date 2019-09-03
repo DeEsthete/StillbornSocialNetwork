@@ -7,10 +7,10 @@ using System.Text;
 
 namespace Stillborn.Services.Services
 {
-    public class ContentSevice : IContentService
+    public class ContentService : IContentService
     {
         private readonly RepositoryService _service;
-        public ContentSevice(RepositoryService service)
+        public ContentService(RepositoryService service)
         {
             _service = service;
         }
