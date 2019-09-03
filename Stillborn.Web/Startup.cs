@@ -37,7 +37,9 @@ namespace Stillborn.Web
                 options.Password.RequiredUniqueChars = 2;
             });
             services.AddScoped<RepositoryService>();
+            services.AddScoped<UserRepository>();
             services.AddHostedService<DBFillHostedService>();
+            services.AddSignalR();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -47,7 +49,13 @@ namespace Stillborn.Web
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseDefaultFiles();
             app.UseStaticFiles();
+
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<ChatRoomService>("/chat");
+            });
 
             app.UseMvc(routes =>
             {

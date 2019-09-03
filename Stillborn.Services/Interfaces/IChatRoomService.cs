@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Stillborn.Services.Interfaces
 {
@@ -11,8 +12,7 @@ namespace Stillborn.Services.Interfaces
         void LeaveChatRoom(string userId, int chatGroupId);
         void CreateChatRoom(string creatorId);
         IEnumerable<User> GetChatRoomUsers(int chatRoomId);
-        IEnumerable<Message> GetChatRoomMessages(int chatRoomId);
-        void SendMessage(int senderId,int contentId);
+        Task Send(string senderId,int contentId,string text);
 
     }
 }
