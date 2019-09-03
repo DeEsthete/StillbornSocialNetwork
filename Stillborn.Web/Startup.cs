@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Stillborn.Domain.Data;
 using Stillborn.Domain.Entities;
+using Stillborn.Services.Hubs;
 using Stillborn.Services.Interfaces;
 using Stillborn.Services.Repositories;
 using Stillborn.Services.Services;
@@ -54,7 +55,7 @@ namespace Stillborn.Web
 
             app.UseSignalR(routes =>
             {
-                routes.MapHub<ChatRoomService>("/chat");
+                routes.MapHub<ChatHub>("/chat");
             });
 
             app.UseMvc(routes =>
