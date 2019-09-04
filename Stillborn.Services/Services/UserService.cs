@@ -99,14 +99,18 @@ namespace Stillborn.Services.Services
             return _repositoryService.GetRepository<Wall>().FindById(user.WallId);
         }
 
-        public void SetUserInfo(UserInfoViewModel info)
+        public async Task SetUserInfoAsync(UserInfoViewModel info)
         {
-            //
+            User user = await _userManager.FindByIdAsync(info.Id);
+            user.Gender = info.Gender;
+            user.NickName = info.NickName;
+            await _userManager.UpdateAsync(user);
         }
 
-        public UserInfoViewModel GetUserInfo(string id)
+        public async Task<UserInfoViewModel> GetUserInfoAsync(string userid)
         {
-            throw new NotImplementedException();
+            User user = await _userManager.FindByIdAsync(userid);
+            return new UserInfoViewModel { Id = user.Id, NickName = user.NickName, Gender = user.Gender };
         }
 
         public void Authorization(AuthorizationUserViewModel user)

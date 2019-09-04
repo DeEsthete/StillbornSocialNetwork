@@ -8,7 +8,7 @@ namespace Stillborn.Domain.Entities
     public class User : IdentityUser
     {
         public string NickName { get; set; }
-        public bool IsMan { get; set; }
+        public bool Gender { get; set; }
 
         public int WallId { get; set; }
         public Wall Wall { get; set; }
