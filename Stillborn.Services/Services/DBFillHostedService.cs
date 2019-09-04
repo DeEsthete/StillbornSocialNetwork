@@ -58,7 +58,7 @@ namespace Stillborn.Services.Services
                     bool userCreated = false;
 
                     var user = await userManager.FindByNameAsync("User0");
-                    if( user == null)
+                    if (user == null)
                     {
                         user = new User { UserName = "User0", Email = "user0@gmail.com", Wall = firstWall, Content = firstContent };
                         await userManager.CreateAsync(user, "12345678aB");
@@ -89,7 +89,7 @@ namespace Stillborn.Services.Services
                         await userManager.CreateAsync(user3, "12345678aB");
                         userCreated = true;
                     }
-                    if(userCreated == true)  context.SaveChanges();
+                    if (userCreated == true) context.SaveChanges();
 
                     //*****
                     var firstMedia = new Media { Content = firstContent, CreationDate = GetCreationDateTime(), Bytes = new byte[0], TypeId = 1, Likes = 2 };
@@ -99,9 +99,9 @@ namespace Stillborn.Services.Services
                     context.AddRange(firstMedia, secondMedia, thirdMedia, fourthMedia);
                     context.SaveChanges();
                     //*****
-                    var firstPost = new Post { Wall= firstWall, CreationDate = GetCreationDateTime(), Text = "First Post", Likes = 1, Content = firstContent };
-                    var secondPost = new Post { Wall = secondWall, CreationDate = GetCreationDateTime(), Text = "Second Post", Likes = 5, Content = secondContent };
-                    var thirdPost = new Post { Wall = thirdWall, CreationDate = GetCreationDateTime(), Text = "Third Post", Likes = 7, Content = thirdContent };
+                    var firstPost = new Post { Wall = firstWall, CreationDate = GetCreationDateTime(), Text = "First Post", Content = firstContent };
+                    var secondPost = new Post { Wall = secondWall, CreationDate = GetCreationDateTime(), Text = "Second Post", Content = secondContent };
+                    var thirdPost = new Post { Wall = thirdWall, CreationDate = GetCreationDateTime(), Text = "Third Post", Content = thirdContent };
                     context.AddRange(firstPost, secondPost, thirdPost);
                     context.SaveChanges();
                     //******
@@ -115,9 +115,9 @@ namespace Stillborn.Services.Services
                         Likes = 1,
                         Sender = user
                     };
-                    var secondComment = new Comment() { Post = secondPost, MediaId = 1, Content = secondContent, CreationDate = GetCreationDateTime(), Text = "Second Comment", Likes = 4, Sender= user1 };
-                    var thirdComment = new Comment() { Post = thirdPost, MediaId = 1, Content = thirdContent, CreationDate = GetCreationDateTime(), Text = "Third Comment", Likes = 6, Sender= user2 };
-                    var fourthComment = new Comment() { Post = firstPost, MediaId = 3, Content = fourthContent, CreationDate = GetCreationDateTime(), Text = "Forth Comment", Likes = 3, Sender=user3 };
+                    var secondComment = new Comment() { Post = secondPost, MediaId = 1, Content = secondContent, CreationDate = GetCreationDateTime(), Text = "Second Comment", Likes = 4, Sender = user1 };
+                    var thirdComment = new Comment() { Post = thirdPost, MediaId = 1, Content = thirdContent, CreationDate = GetCreationDateTime(), Text = "Third Comment", Likes = 6, Sender = user2 };
+                    var fourthComment = new Comment() { Post = firstPost, MediaId = 3, Content = fourthContent, CreationDate = GetCreationDateTime(), Text = "Forth Comment", Likes = 3, Sender = user3 };
                     context.AddRange(
                         firstComment,
                         secondComment,
@@ -126,9 +126,9 @@ namespace Stillborn.Services.Services
                         );
                     context.SaveChanges();
                     //******
-                    var firstChatRoom = new ChatRoom() { Creator= user2, CreationDate = GetCreationDateTime() };
-                    var secondChatRoom = new ChatRoom() { Creator=user1, CreationDate = GetCreationDateTime() };
-                    var thirdChatRoom = new ChatRoom() { Creator=user3, CreationDate = GetCreationDateTime() };
+                    var firstChatRoom = new ChatRoom() { Creator = user2, CreationDate = GetCreationDateTime() };
+                    var secondChatRoom = new ChatRoom() { Creator = user1, CreationDate = GetCreationDateTime() };
+                    var thirdChatRoom = new ChatRoom() { Creator = user3, CreationDate = GetCreationDateTime() };
                     context.AddRange(
                         firstChatRoom,
                         secondChatRoom,

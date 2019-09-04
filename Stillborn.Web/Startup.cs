@@ -38,7 +38,8 @@ namespace Stillborn.Web
                 options.Password.RequiredUniqueChars = 2;
             });
             services.AddScoped<RepositoryService>();
-            //services.AddScoped<UserRepository>(); удален / нужно работать через usermanager
+            services.AddScoped<IChatRoomService,ChatRoomService>();
+            services.AddScoped<IPostService, PostService>();
             services.AddHostedService<DBFillHostedService>();
             services.AddSignalR();
         }

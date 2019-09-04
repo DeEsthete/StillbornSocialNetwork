@@ -16,7 +16,6 @@ namespace Stillborn.Domain.Entities
         public Content Content { get; set; }
 
         public string Text { get; set; }
-        public int Likes { get; set; }
         public IEnumerable<Comment> Comments { get; set; }
     }
 }

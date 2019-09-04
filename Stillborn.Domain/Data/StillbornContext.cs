@@ -42,7 +42,6 @@ namespace Stillborn.Domain.Data
         public DbSet<UserChatRoom> UserChatRooms { get; set; }//**
         public DbSet<UserContact> UserContacts { get; set; }//**
 
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Seed();

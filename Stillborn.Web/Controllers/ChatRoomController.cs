@@ -37,7 +37,7 @@ namespace Stillborn.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                //_chatRoomService.
+                _repository.GetRepository<ChatRoom>().Add(chatRoom);
                 return Ok();
             }
             return BadRequest();
@@ -53,6 +53,12 @@ namespace Stillborn.Web.Controllers
                 return Ok();
             }
             return BadRequest();
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetChatRoomLastMessage(int chatRoomId)
+        {
+            return Ok(_repository.GetRepository<ChatRoom>().FindById(chatRoomId).Messages.ToList().Last());
         }
     }
 }
