@@ -11,36 +11,23 @@ namespace Stillborn.Domain.Data
         {
 
             modelBuilder.Entity<MediaType>().HasData(
-                new MediaType() { Id = 1, Name = "Image", CreationDate = GetCreationDateTime() },
-                new MediaType() { Id = 2, Name = "Music", CreationDate = GetCreationDateTime() },
-                new MediaType() { Id = 3, Name = "Video", CreationDate = GetCreationDateTime() }
+                new MediaType() { Id = (int)MediaTypes.Image, Name = MediaTypes.Image.ToString(), CreationDate = GetCreationDateTime() },
+                new MediaType() { Id = (int)MediaTypes.Music, Name = MediaTypes.Music.ToString(), CreationDate = GetCreationDateTime() },
+                new MediaType() { Id = (int)MediaTypes.Video, Name = MediaTypes.Video.ToString(), CreationDate = GetCreationDateTime() }
                 //new MediaType() { Id = 4, Name = "Text", CreationDate = GetCreationDateTime() } // на случай если поменяем Text как Media
                 );
 
             modelBuilder.Entity<ContactType>().HasData(
-                new ContactType() { Id = 1, Name = "Friend", CreationDate = GetCreationDateTime() },
-                new ContactType() { Id = 2, Name = "Follower", CreationDate = GetCreationDateTime() },
-                new ContactType() { Id = 3, Name = "Blocked", CreationDate = GetCreationDateTime() }
+                new ContactType() { Id = (int)ContactTypes.Friend, Name = ContactTypes.Friend.ToString(), CreationDate = GetCreationDateTime() },
+                new ContactType() { Id = (int)ContactTypes.Follower, Name = ContactTypes.Follower.ToString(), CreationDate = GetCreationDateTime() },
+                new ContactType() { Id = (int)ContactTypes.Blocked, Name = ContactTypes.Blocked.ToString(), CreationDate = GetCreationDateTime() }
                 );
 
             modelBuilder.Entity<GroupRole>().HasData(
-                new GroupRole() { Id = 1, Name = "Admin", CreationDate = GetCreationDateTime() },
-                new GroupRole() { Id = 2, Name = "Subscriber", CreationDate = GetCreationDateTime() }
+                new GroupRole() { Id = (int)GroupRoles.Admin, Name = GroupRoles.Admin.ToString(), CreationDate = GetCreationDateTime() },
+                new GroupRole() { Id = (int)GroupRoles.Subscriber, Name = GroupRoles.Subscriber.ToString(), CreationDate = GetCreationDateTime() }
                 );
 
-            //Остальное побочное добавим после реализации их добавления
-            //**************
-            //Content
-            //Media
-            //Wall
-            //Post
-            //Comment
-            //ChatRoom
-            //Message
-            //Group
-            //Member
-            //UserChatRoom
-            //UserContact
         }
 
         private static DateTime GetCreationDateTime()

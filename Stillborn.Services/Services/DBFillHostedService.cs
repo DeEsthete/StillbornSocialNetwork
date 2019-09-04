@@ -29,6 +29,17 @@ namespace Stillborn.Services.Services
                     var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
                     var repositoryService = scope.ServiceProvider.GetRequiredService<Repositories.RepositoryService>();
                     var context = scope.ServiceProvider.GetRequiredService<StillbornContext>();
+                    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+                    foreach (var roleName in Enum.GetNames(typeof(BaseRoles)))
+                    {
+                        var roleExist = await roleManager.RoleExistsAsync(roleName);
+                        if (!roleExist)
+                        {
+                            //create the roles and seed them to the database: Question 1
+                            await roleManager.CreateAsync(new IdentityRole(roleName));
+                        }
+                    }
 
                     //*****
                     var firstWall = new Wall { CreationDate = GetCreationDateTime() };
@@ -43,19 +54,42 @@ namespace Stillborn.Services.Services
                     context.Walls.AddRange(firstWall, secondWall, thirdWall);
                     context.Content.AddRange(firstContent, secondContent, thirdContent, fourthContent);
                     context.SaveChanges();
+                    //***********
+                    bool userCreated = false;
 
-                    var user = new User { UserName = $"User0", Email = $"user0@gmail.com", Wall = firstWall, Content= firstContent };
-                    await userManager.CreateAsync(user, "12345678aB");
+                    var user = await userManager.FindByNameAsync("User0");
+                    if( user == null)
+                    {
+                        user = new User { UserName = "User0", Email = "user0@gmail.com", Wall = firstWall, Content = firstContent };
+                        await userManager.CreateAsync(user, "12345678aB");
+                        userCreated = true;
+                    }
 
-                    var user1 = new User { UserName = $"User1", Email = $"user1@gmail.com", Wall = secondWall, Content = thirdContent };
-                    await userManager.CreateAsync(user1, "12345678aB");                          
-                                                                                                 
-                    var user2 = new User { UserName = $"User2", Email = $"user2@gmail.com", Wall = thirdWall, Content = firstContent };
-                    await userManager.CreateAsync(user2, "12345678aB");                          
-                                                                                                 
-                    var user3 = new User { UserName = $"User3", Email = $"user3@gmail.com", Wall = secondWall, Content = secondContent };
-                    await userManager.CreateAsync(user3, "12345678aB");
-                    context.SaveChanges();
+                    var user1 = await userManager.FindByNameAsync("User1");
+                    if (user1 == null)
+                    {
+                        user1 = new User { UserName = "User1", Email = "user1@gmail.com", Wall = secondWall, Content = thirdContent };
+                        await userManager.CreateAsync(user1, "12345678aB");
+                        userCreated = true;
+                    }
+
+                    var user2 = await userManager.FindByNameAsync("User1");
+                    if (user2 == null)
+                    {
+                        user2 = new User { UserName = "User2", Email = "user2@gmail.com", Wall = thirdWall, Content = firstContent };
+                        await userManager.CreateAsync(user2, "12345678aB");
+                        userCreated = true;
+                    }
+
+                    var user3 = await userManager.FindByNameAsync("User1");
+                    if (user3 == null)
+                    {
+
+                        user3 = new User { UserName = "User3", Email = "user3@gmail.com", Wall = secondWall, Content = secondContent };
+                        await userManager.CreateAsync(user3, "12345678aB");
+                        userCreated = true;
+                    }
+                    if(userCreated == true)  context.SaveChanges();
 
                     //*****
                     var firstMedia = new Media { Content = firstContent, CreationDate = GetCreationDateTime(), Bytes = new byte[0], TypeId = 1, Likes = 2 };
