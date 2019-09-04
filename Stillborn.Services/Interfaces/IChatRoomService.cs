@@ -10,8 +10,8 @@ namespace Stillborn.Services.Interfaces
         void AddUserToChatRoom(string userId, int chatGroupId);
         void LeaveChatRoom(string userId, int chatGroupId);
         void CreateChatRoom(string creatorId);
-        Task<IEnumerable<User>> GetChatRoomUsersAsync(int chatRoomId);
-        Task Send(string senderId,int contentId,string text);
+        IEnumerable<User> GetChatRoomUsers(int chatRoomId);
+        IEnumerable<ChatRoom> GetUserChatRooms(string userId);
 
     }
 }

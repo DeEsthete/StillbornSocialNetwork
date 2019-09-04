@@ -27,10 +27,32 @@ namespace Stillborn.Web.Controllers
             return Ok(_repository.GetRepository<ChatRoom>().GetEntity(id));
         }
         [HttpGet("{id}")]
-        public IActionResult GetUserChatRooms(int userId)
+        public IActionResult GetUserChatRooms(string userId)
         {
-            return null;
-            //return Ok(_repository.GetRepository<ChatRoom>().GetEntity(id));
+            return Ok(_chatRoomService.GetUserChatRooms(userId));
+        }
+        //Add
+        [HttpPost]
+        public IActionResult Post(ChatRoom chatRoom)//id Юзера?
+        {
+            if (ModelState.IsValid)
+            {
+                //_chatRoomService.
+                return Ok();
+            }
+            return BadRequest();
+        }
+
+        //Обновить
+        [HttpPut("{id}")]
+        public IActionResult Put(ChatRoom chatRoom)
+        {
+            if (ModelState.IsValid)
+            {
+                _repository.GetRepository<ChatRoom>().UpdateEntity(chatRoom);
+                return Ok();
+            }
+            return BadRequest();
         }
     }
 }
