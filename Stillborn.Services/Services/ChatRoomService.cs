@@ -24,20 +24,20 @@ namespace Stillborn.Services.Services
             UserChatRoom userChatRoom = new UserChatRoom();
             userChatRoom.ChatRoomId = chatGroupId;
             userChatRoom.UserId = userId;
-            _service.GetRepository<UserChatRoom>().AddEntity(userChatRoom);
+            _service.GetRepository<UserChatRoom>().Add(userChatRoom);
         }
 
         public void CreateChatRoom(string creatorId)
         {
             ChatRoom chatRoom = new ChatRoom();
             chatRoom.CreatorId = creatorId;
-            _service.GetRepository<ChatRoom>().AddEntity(chatRoom);
+            _service.GetRepository<ChatRoom>().Add(chatRoom);
 
         }
 
         public IEnumerable<User> GetChatRoomUsers(int chatRoomId)
         {
-            return _service.GetRepository<ChatRoom>().GetEntity(chatRoomId).Users.Select(u => u.User).ToList();
+            return _service.GetRepository<ChatRoom>().FindById(chatRoomId).Users.Select(u => u.User).ToList();
         }
 
         public IEnumerable<ChatRoom> GetUserChatRooms(string userId)
@@ -46,7 +46,7 @@ namespace Stillborn.Services.Services
             List<ChatRoom> chatRooms = new List<ChatRoom>();
             foreach (var userChatRoom in userChatRooms)
             {
-                chatRooms.Add(_service.GetRepository<ChatRoom>().GetEntity(userChatRoom.ChatRoomId));
+                chatRooms.Add(_service.GetRepository<ChatRoom>().FindById(userChatRoom.ChatRoomId));
             }
             return chatRooms;
         }
@@ -57,7 +57,7 @@ namespace Stillborn.Services.Services
             {
                 if (userChat.UserId == userId && userChat.ChatRoomId == chatGroupId)
                 {
-                    _service.GetRepository<UserChatRoom>().RemoveEntity(userChat.Id);
+                    _service.GetRepository<UserChatRoom>().Remove(userChat.Id);
                 }
             }
         }

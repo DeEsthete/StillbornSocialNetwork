@@ -24,7 +24,7 @@ namespace Stillborn.Web.Controllers
         [HttpGet("{id}")]
         public IActionResult GetChatRoomById(int id)
         {
-            return Ok(_repository.GetRepository<ChatRoom>().GetEntity(id));
+            return Ok(_repository.GetRepository<ChatRoom>().FindById(id));
         }
         [HttpGet("{id}")]
         public IActionResult GetUserChatRooms(string userId)
@@ -49,7 +49,7 @@ namespace Stillborn.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                _repository.GetRepository<ChatRoom>().UpdateEntity(chatRoom);
+                _repository.GetRepository<ChatRoom>().Update(chatRoom);
                 return Ok();
             }
             return BadRequest();

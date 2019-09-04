@@ -8,6 +8,6 @@ namespace Stillborn.Models.ViewModels
     {
         public string Id { get; set; }
         public string NickName { get; set; }
-        public bool IsMan { get; set; }
+        public bool Gender { get; set; }
     }
 }

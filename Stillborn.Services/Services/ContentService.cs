@@ -18,7 +18,7 @@ namespace Stillborn.Services.Services
         public Content GenerateContent()
         {
             Content content = new Content();
-            _service.GetRepository<Content>().AddEntity(content);
+            _service.GetRepository<Content>().Add(content);
             return content;
         }
 
@@ -28,15 +28,15 @@ namespace Stillborn.Services.Services
             media.Bytes = Bytes;
             media.Likes = 0;
             media.TypeId = typeId;
-            _service.GetRepository<Media>().AddEntity(media);
+            _service.GetRepository<Media>().Add(media);
             return media;
         }
 
         void IContentService.AddMediaInContent(int mediaId, int contentId)
         {
-            Media media = _service.GetRepository<Media>().GetEntity(mediaId);
-            media.ContentId = _service.GetRepository<Content>().GetEntity(contentId).Id;
-            _service.GetRepository<Media>().UpdateEntity(media);
+            Media media = _service.GetRepository<Media>().FindById(mediaId);
+            media.ContentId = _service.GetRepository<Content>().FindById(contentId).Id;
+            _service.GetRepository<Media>().Update(media);
         }
     }
 }

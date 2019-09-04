@@ -16,7 +16,7 @@ namespace Stillborn.Services.Repositories
         {
             _context = context;
         }
-        public void AddEntity(T entity)
+        public void Add(T entity)
         {
             if (entity != null)
             {
@@ -30,12 +30,12 @@ namespace Stillborn.Services.Repositories
             return _context.Set<T>();
         }
 
-        public T GetEntity(int id)
+        public T FindById(int id)
         {
             return _context.Set<T>().FirstOrDefault(i => i.Id == id);
         }
 
-        public void RemoveEntity(int id)
+        public void Remove(int id)
         {
             var entity = _context.Set<T>().FirstOrDefault(s => s.Id == id);
             if (entity != null)
@@ -46,7 +46,7 @@ namespace Stillborn.Services.Repositories
             }
         }
 
-        public void UpdateEntity(T entity)
+        public void Update(T entity)
         {
             _context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             _context.SaveChanges();

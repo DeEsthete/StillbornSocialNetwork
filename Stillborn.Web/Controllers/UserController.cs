@@ -13,12 +13,12 @@ namespace Stillborn.Web.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        //private readonly UserManager<User> _userManager;
+        private readonly UserManager<User> _userManager;
 
-        //public UserController(UserManager<User> userManager)
-        //{
-        //    this._userManager = userManager;
-        //}
+        public UserController(UserManager<User> userManager)
+        {
+            _userManager = userManager;
+        }
 
         ////отдать
         //[HttpGet("{id}")]

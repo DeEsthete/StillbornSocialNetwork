@@ -6,14 +6,14 @@ namespace Stillborn.Services.Interfaces
 {
     public interface IRepository<T>
     {
-        void AddEntity(T entity);
+        void Add(T entity);
 
-        void RemoveEntity(int id);
+        void Remove(int id);
 
-        void UpdateEntity(T entity);
+        void Update(T entity);
 
         IEnumerable<T> GetAll();
 
-        T GetEntity(int id);
+        T FindById(int id);
     }
 }
