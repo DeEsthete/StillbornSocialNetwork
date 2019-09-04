@@ -63,26 +63,22 @@ namespace Stillborn.Services.Services
             }
         }
 
-        public void Authorization(AuthorizationUserViewModel user)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<IEnumerable<User>> GetBlockedUsersAsync(string userid)
         {
             List<User> blockedUsers = new List<User>();
-           var userContacts = _repositoryService.GetRepository<UserContact>().
+            var userContacts = _repositoryService.GetRepository<UserContact>().
                 GetAll().Where(c => c.MainUserId == userid && c.TypeId == (int)ContactTypes.Blocked);
-            foreach(var uc in userContacts)
+            foreach(var userCOntact in userContacts)
             {
-                blockedUsers.Add(await _userManager.FindByIdAsync(uc.SecondUserId));
+                blockedUsers.Add(await _userManager.FindByIdAsync(userCOntact.SecondUserId));
             }
             return blockedUsers;
         }
 
-        public Content GetUserContent(string id)
+        public async Task<Content> GetUserContentAsync(string userid)
         {
-            throw new NotImplementedException();
+            User user = await _userManager.FindByIdAsync(userid);
+            return _repositoryService.GetRepository<Content>().FindById(user.ContentId);
         }
 
         public async Task<IEnumerable<User>> GetFriendsAsync(string userid)
@@ -97,22 +93,28 @@ namespace Stillborn.Services.Services
             return friendUsers;
         }
 
+        public async Task<Wall> GetUserWallAsync(string userid)
+        {
+            User user = await _userManager.FindByIdAsync(userid);
+            return _repositoryService.GetRepository<Wall>().FindById(user.WallId);
+        }
+
+        public void SetUserInfo(UserInfoViewModel info)
+        {
+            //
+        }
+
         public UserInfoViewModel GetUserInfo(string id)
         {
             throw new NotImplementedException();
         }
 
-        public Wall GetUserWall(string id)
+        public void Authorization(AuthorizationUserViewModel user)
         {
             throw new NotImplementedException();
         }
 
         public void Registration(RegistrationUserViewModel user)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetUserInfo(UserInfoViewModel info)
         {
             throw new NotImplementedException();
         }

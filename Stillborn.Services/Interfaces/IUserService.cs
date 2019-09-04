@@ -12,14 +12,14 @@ namespace Stillborn.Services.Interfaces
         void AddContent(Content content);
         Task AddToBlockedAsync(string mainUserId, string secondUserId);
         Task AddToFriendAsync(string mainUserId, string secondUserId);
-        IEnumerable<User> GetFriendsAsync(string id);
+        Task<IEnumerable<User>> GetFriendsAsync(string id);
 
         void SetUserInfo(UserInfoViewModel info);
         UserInfoViewModel GetUserInfo(string id);
-        
-        IEnumerable<User> GetBlockedUsersAsync(string id);
-        Content GetUserContent(string id);
-        Wall GetUserWall(string id);
+
+        Task<IEnumerable<User>> GetBlockedUsersAsync(string id);
+        Task<Content> GetUserContentAsync(string id);
+        Task<Wall> GetUserWallAsync(string id);
         
         void Authorization(AuthorizationUserViewModel user);
         void Registration(RegistrationUserViewModel user);
