@@ -31,6 +31,11 @@ namespace Stillborn.Web.Controllers
         {
             return Ok(_chatRoomService.GetUserChatRooms(userId));
         }
+        [HttpGet("{id}")]
+        public IActionResult GetChatRoomUsers(int chatId)
+        {
+            return Ok(_repository.GetRepository<ChatRoom>().FindById(chatId).Users.ToList());//Вернуть юзер айдишники
+        }
         //Add
         [HttpPost]
         public IActionResult Post(ChatRoom chatRoom)//id Юзера?

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Stillborn.Domain.Entities;
 using Stillborn.Services.Interfaces;
 using Stillborn.Services.Repositories;
 
@@ -13,11 +14,51 @@ namespace Stillborn.Web.Controllers
     [ApiController]
     public class PostController : ControllerBase
     {
-        private readonly IPostService _postService;
         private readonly RepositoryService _repository;
-        public PostController(RepositoryService repository,IPostService postService)
+        public PostController(RepositoryService repository)
         {
-
+            _repository = repository;
         }
+
+        [HttpGet("{id}")]
+        public IActionResult GetPostById(int id)
+        {
+            return Ok(_repository.GetRepository<Post>().FindById(id));
+        }
+
+        [HttpGet]
+        public IActionResult GetPosts()
+        {
+            return Ok(_repository.GetRepository<Post>().GetAll());
+        }
+        //Add
+        [HttpPost]
+        public IActionResult AddPost(Post post)
+        {
+            if (ModelState.IsValid)
+            {
+                _repository.GetRepository<Post>().Add(post);
+                return Ok();
+            }
+            return BadRequest();
+        }
+
+        //Обновить
+        [HttpPut]
+        public IActionResult Put(Post post)
+        {
+            if (ModelState.IsValid)
+            {
+                _repository.GetRepository<Post>().Update(post);
+                return Ok();
+            }
+            return BadRequest();
+        }
+        [HttpGet("{id}")]
+        public IActionResult GetPostsByWallId(int id)
+        {
+            return Ok(_repository.GetRepository<Post>().GetAll().Where(i=>i.WallId==id));
+        }
+
     }
 }

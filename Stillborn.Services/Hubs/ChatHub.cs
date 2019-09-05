@@ -28,7 +28,9 @@ namespace Stillborn.Services.Hubs
             message.ContentId = contentId;
             message.ChatRoomId = chatRoomId;
             _repository.GetRepository<Message>().Add(message);
-            await Clients.Users(_chatRoomService.GetChatRoomUsers(chatRoomId).Select(u => u.Id).ToList()).SendAsync("Send", message);
+            IEnumerable<string> sender=new List<string>();
+            sender.ToList().Add(senderId);
+            await Clients.Users(_chatRoomService.GetChatRoomUsers(chatRoomId).Select(u =>u.Id ).Except(sender).ToList()).SendAsync("Send", message);
         }
     }
 }

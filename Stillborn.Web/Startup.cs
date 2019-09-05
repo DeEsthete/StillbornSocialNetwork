@@ -39,7 +39,6 @@ namespace Stillborn.Web
             });
             services.AddScoped<RepositoryService>();
             services.AddScoped<IChatRoomService,ChatRoomService>();
-            services.AddScoped<IPostService, PostService>();
             services.AddHostedService<DBFillHostedService>();
             services.AddSignalR();
         }
