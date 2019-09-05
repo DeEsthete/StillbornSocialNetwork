@@ -10,6 +10,6 @@ namespace Stillborn.Models.ViewModels
         public string Password { get; set; }
         public string Email { get; set; }
         public string NickName { get; set; }
-        public bool IsMan { get; set; }
+        public bool Gender { get; set; }
     }
 }
