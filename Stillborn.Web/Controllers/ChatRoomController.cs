@@ -34,7 +34,12 @@ namespace Stillborn.Web.Controllers
         [HttpGet("{id}")]
         public IActionResult GetChatRoomUsers(int chatId)
         {
-            return Ok(_repository.GetRepository<ChatRoom>().FindById(chatId).Users.ToList());//Вернуть юзер айдишники
+            IEnumerable<string> userIdes = new List<string>();
+            foreach(var i in _repository.GetRepository<ChatRoom>().FindById(chatId).Users.ToList())
+            {
+                userIdes.ToList().Add(i.UserId);
+            }
+            return Ok(userIdes);
         }
         //Add
         [HttpPost]
