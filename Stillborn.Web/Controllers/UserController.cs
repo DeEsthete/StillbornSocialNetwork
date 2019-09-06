@@ -20,6 +20,8 @@ namespace Stillborn.Web.Controllers
             _userManager = userManager;
         }
 
+
+
         ////отдать
         //[HttpGet("{id}")]
         //public IActionResult Get(string id = null)
@@ -74,5 +76,7 @@ namespace Stillborn.Web.Controllers
         //    }
         //    return BadRequest();
         //}
+
+
     }
 }

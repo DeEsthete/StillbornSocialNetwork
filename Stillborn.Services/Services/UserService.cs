@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Stillborn.Domain.Data;
 
 namespace Stillborn.Services.Services
 {
@@ -18,7 +18,7 @@ namespace Stillborn.Services.Services
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
 
-        public UserService(RepositoryService repositoryService, UserManager<User> userManager, SignInManager<User> signInManager)
+        public UserService(RepositoryService repositoryService, UserManager<User> userManager, SignInManager<User> signInManager )
         {
             _repositoryService = repositoryService;
             _userManager = userManager;
@@ -115,9 +115,22 @@ namespace Stillborn.Services.Services
             return new UserInfoViewModel { Id = user.Id, NickName = user.NickName, Gender = user.Gender };
         }
 
-        public void Authorization(AuthorizationUserViewModel user)
+        public async Task LoginAsync(LoginUserViewModel model)
         {
-            throw new NotImplementedException();
+            if (model != null)
+            {
+               
+                User user = await _userManager.FindByNameAsync(model.Login);
+                
+                if (user != null)
+                {
+                    if (await _signInManager.CheckPasswordSignInAsync(user,model.Password, false) == SignInResult.Success)
+                    {
+                        await _signInManager.SignInAsync(user,false); 
+                    }
+                }
+            }
+            throw new Exception();
         }
 
         public async Task Registration(RegistrationUserViewModel model)
@@ -134,7 +147,7 @@ namespace Stillborn.Services.Services
                 if (result.Succeeded)
                 {
                     // установка куки
-                    await _signInManager.SignInAsync(user, false);
+                    await _signInManager.SignInAsync(user, false);//не будет работать нужны токены
                 }
                 else
                 {

@@ -20,8 +20,7 @@ namespace Stillborn.Services.Interfaces
         Task<IEnumerable<User>> GetBlockedUsersAsync(string id);
         Task<Content> GetUserContentAsync(string id);
         Task<Wall> GetUserWallAsync(string id);
-        
-        void Authorization(AuthorizationUserViewModel user);
+        Task LoginAsync(LoginUserViewModel model);
         Task Registration(RegistrationUserViewModel model);
     }
 }
