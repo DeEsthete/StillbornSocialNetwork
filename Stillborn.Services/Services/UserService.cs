@@ -16,11 +16,13 @@ namespace Stillborn.Services.Services
     {
         private readonly RepositoryService _repositoryService;
         private readonly UserManager<User> _userManager;
+        private readonly SignInManager<User> _signInManager;
 
-        public UserService(RepositoryService repositoryService, UserManager<User> userManager)
+        public UserService(RepositoryService repositoryService, UserManager<User> userManager, SignInManager<User> signInManager)
         {
             _repositoryService = repositoryService;
             _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         public void AddContent(Content content)
@@ -118,9 +120,27 @@ namespace Stillborn.Services.Services
             throw new NotImplementedException();
         }
 
-        public void Registration(RegistrationUserViewModel user)
+        public async Task Registration(RegistrationUserViewModel model)
         {
-            throw new NotImplementedException();
+            if (model!=null)
+            {
+                Wall wall = new Wall { CreationDate =DateTime.UtcNow };
+                _repositoryService.GetRepository<Wall>().Add(wall);
+                var content = new Content { CreationDate = DateTime.UtcNow };
+                _repositoryService.GetRepository<Content>().Add(content);
+                User user = new User { Email = model.Email, UserName = model.Login,WallId=wall.Id,ContentId=content.Id,NickName=model.NickName,Gender=model.Gender };
+                // добавляем пользователя
+                var result = await _userManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    // установка куки
+                    await _signInManager.SignInAsync(user, false);
+                }
+                else
+                {
+                    throw new Exception();
+                }
+            }
         }
     }
 }

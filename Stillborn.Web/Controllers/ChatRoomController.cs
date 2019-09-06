@@ -43,7 +43,7 @@ namespace Stillborn.Web.Controllers
         }
         //Add
         [HttpPost]
-        public IActionResult Post(ChatRoom chatRoom)//id Юзера?
+        public IActionResult Post(ChatRoom chatRoom)
         {
             if (ModelState.IsValid)
             {

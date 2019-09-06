@@ -22,6 +22,6 @@ namespace Stillborn.Services.Interfaces
         Task<Wall> GetUserWallAsync(string id);
         
         void Authorization(AuthorizationUserViewModel user);
-        void Registration(RegistrationUserViewModel user);
+        Task Registration(RegistrationUserViewModel model);
     }
 }
