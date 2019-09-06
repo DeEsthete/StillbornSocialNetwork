@@ -9,6 +9,8 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using Stillborn.Domain.Data;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Stillborn.Services.Services
 {
@@ -115,22 +117,24 @@ namespace Stillborn.Services.Services
             return new UserInfoViewModel { Id = user.Id, NickName = user.NickName, Gender = user.Gender };
         }
 
-        public async Task LoginAsync(LoginUserViewModel model)
+        public ClaimsIdentity GetIdentity(LoginUserViewModel model)
         {
-            if (model != null)
+            User user = _userManager.Users.FirstOrDefault(u => u.UserName == model.Login);
+
+            if (user != null)
             {
-               
-                User user = await _userManager.FindByNameAsync(model.Login);
-                
-                if (user != null)
+                var claims = new List<Claim>
                 {
-                    if (await _signInManager.CheckPasswordSignInAsync(user,model.Password, false) == SignInResult.Success)
-                    {
-                        await _signInManager.SignInAsync(user,false); 
-                    }
-                }
+                    new Claim(ClaimsIdentity.DefaultNameClaimType,model.Login),
+                    new Claim(ClaimsIdentity.DefaultRoleClaimType, model.Password)
+                };
+                ClaimsIdentity claimsIdentity =
+                new ClaimsIdentity(claims, "Token", ClaimsIdentity.DefaultNameClaimType,
+                    ClaimsIdentity.DefaultRoleClaimType);
+                return claimsIdentity;
             }
-            throw new Exception();
+            // если пользователя не найдено
+            return null;
         }
 
         public async Task Registration(RegistrationUserViewModel model)
