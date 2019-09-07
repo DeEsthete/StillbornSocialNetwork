@@ -223,3 +223,52 @@ __pycache__/
 
 # Windows thumbnail cache files
 Thumbs.db
+
+# =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=ClientIgnore=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+Angular-StillbornSocialNetwork/dist
+Angular-StillbornSocialNetwork/tmp
+Angular-StillbornSocialNetwork/out-tsc
+# Only exists if Bazel was run
+Angular-StillbornSocialNetwork/bazel-out
+
+# dependencies
+/Angular-StillbornSocialNetwork/node_modules
+
+# profiling files
+chrome-profiler-events*.json
+speed-measure-plugin*.json
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+/Angular-StillbornSocialNetwork/.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# misc
+/Angular-StillbornSocialNetwork/.sass-cache
+/Angular-StillbornSocialNetwork/connect.lock
+/Angular-StillbornSocialNetwork/coverage
+/Angular-StillbornSocialNetwork/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+
