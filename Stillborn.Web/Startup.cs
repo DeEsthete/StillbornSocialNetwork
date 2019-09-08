@@ -87,18 +87,12 @@ namespace Stillborn.Web
             {
                 app.UseHsts();
             }
+            app.UseCors(builder => builder.WithOrigins("http://localhost:44368")
+                           .AllowAnyHeader()
+                           .AllowAnyMethod());
             app.UseHttpsRedirection();
             app.UseDefaultFiles();
-            app.Use(async (context, next) => {
-                await next();
-                if (context.Response.StatusCode == 404 &&
-                   !Path.HasExtension(context.Request.Path.Value) &&
-                   !context.Request.Path.Value.StartsWith("/api/"))
-                {
-                    context.Request.Path = "/index.html";
-                    await next();
-                }
-            });
+            
             app.UseStaticFiles();
 
             //Это вроде как нужно перенести выше иначе авторизация работать не будет, но я пока в это не лезу, сами решите
@@ -109,6 +103,17 @@ namespace Stillborn.Web
             app.UseSignalR(routes =>
             {
                 routes.MapHub<ChatHub>("/chat");
+            });
+            app.Use(async (context, next) =>
+            {
+                await next();
+                if (context.Response.StatusCode == 404 &&
+                   !Path.HasExtension(context.Request.Path.Value) &&
+                   !context.Request.Path.Value.StartsWith("/api/"))
+                {
+                    context.Request.Path = "/index.html";
+                    await next();
+                }
             });
 
             app.UseMvc(routes =>

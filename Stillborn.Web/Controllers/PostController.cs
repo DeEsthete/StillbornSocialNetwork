@@ -54,7 +54,7 @@ namespace Stillborn.Web.Controllers
             }
             return BadRequest();
         }
-        [HttpGet("{id}")]
+        [HttpGet("/getWallPosts/{id}")]
         public IActionResult GetPostsByWallId(int id)
         {
             return Ok(_repository.GetRepository<Post>().GetAll().Where(i=>i.WallId==id));

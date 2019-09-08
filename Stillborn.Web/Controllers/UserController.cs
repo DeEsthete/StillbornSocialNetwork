@@ -70,8 +70,7 @@ namespace Stillborn.Web.Controllers
             return Ok(_userManager.Users.FirstOrDefault(k => k.Id == id));
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetUsesr()
+        public IActionResult GetUsers()
         {
             return Ok(_userManager.Users.ToList());
         }
