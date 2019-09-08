@@ -69,60 +69,78 @@ namespace Stillborn.Web.Controllers
         }
 
 
-        ////отдать
-        //[HttpGet("{id}")]
-        //public IActionResult Get(string id = null)
-        //{
-        //}
+        //отдать
+        [HttpGet("{id}")]
+        public IActionResult GetUser(string id)
+        {
+            return Ok(_userManager.Users.FirstOrDefault(k => k.Id == id));
+        }
 
-        //[HttpGet]
-        //public IActionResult GetFriendsCount()
-        //{
-        //}
+        [HttpGet("{id}")]
+        public IActionResult GetUsesr()
+        {
+            return Ok(_userManager.Users.ToList());
+        }
+        [HttpPost("/registration")]
+        public IActionResult Registration(RegistrationUserViewModel viewModel)
+        {
+            try
+            {
+                var k = _userService.Registration(viewModel);
+                return Ok("Success");
+            }
+            catch (Exception ex)
+            {
+                return Ok("Failed");
+            }
+        }
+
+
+
 
         //[HttpGet]
         //public IActionResult GetFollowersCount()
         //{
         //}
 
-        //[HttpGet]
-        //public IActionResult GetFriends()
-        //{
-        //}
+            //[HttpGet]
+            //public IActionResult GetFriends()
+            //{
+            //}
 
-        //[HttpGet]
-        //public IActionResult GetBlockUsers()
-        //{
-        //}
+            //[HttpGet]
+            //public IActionResult GetBlockUsers()
+            //{
+            //}
 
-        //[HttpGet]
-        //public IActionResult GetFollowers()
-        //{
-        //}
+            //[HttpGet]
+            //public IActionResult GetFollowers()
+            //{
+            //}
 
-        ////Добавить
-        //[HttpPost]
-        //public IActionResult Post([FromBody]User user)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _userManager.CreateAsync(user);
-        //        return Ok();
-        //    }
-        //    return BadRequest();
-        //}
+            ////Добавить
+        [HttpPost]
+        public IActionResult Post(User user)
+        {
+            if (ModelState.IsValid)
+            {
+                _userManager.CreateAsync(user);
+                return Ok();
+            }
+            return BadRequest();
+        }
 
         ////Обновить
-        //[HttpPut("{id}")]
-        //public IActionResult Put([FromBody]User user)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _userManager.UpdateAsync(user);
-        //        return Ok();
-        //    }
-        //    return BadRequest();
-        //}
+        [HttpPut("{id}")]
+        public IActionResult Put([FromBody]User user)
+        {
+            if (ModelState.IsValid)
+            {
+                _userManager.UpdateAsync(user);
+                return Ok();
+            }
+            return BadRequest();
+        }
 
 
     }

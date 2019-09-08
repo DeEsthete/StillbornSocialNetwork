@@ -151,7 +151,7 @@ namespace Stillborn.Services.Services
                 if (result.Succeeded)
                 {
                     // установка куки
-                    await _signInManager.SignInAsync(user, false);//не будет работать нужны токены
+                    //await _signInManager.SignInAsync(user, false);//не будет работать нужны токены
                 }
                 else
                 {
