@@ -20,17 +20,12 @@ namespace Stillborn.Services.Hubs
             _chatRoomService = chatRoomService;
             _repository = repository;
         }
-        public async Task Send(string senderId, int? contentId, string text, int chatRoomId)
+        public async Task Send(Message message)
         {
-            Message message = new Message();
-            message.SenderId = senderId;
-            message.Text = text;
-            message.ContentId = contentId;
-            message.ChatRoomId = chatRoomId;
             _repository.GetRepository<Message>().Add(message);
             IEnumerable<string> sender=new List<string>();
-            sender.ToList().Add(senderId);
-            await Clients.Users(_chatRoomService.GetChatRoomUsers(chatRoomId).Select(u =>u.Id ).Except(sender).ToList()).SendAsync("Send", message);
+            sender.ToList().Add(message.SenderId);
+            await Clients.Users(_chatRoomService.GetChatRoomUsers(message.ChatRoomId).Select(u =>u.Id ).Except(sender).ToList()).SendAsync("Send", message);
         }
     }
 }
