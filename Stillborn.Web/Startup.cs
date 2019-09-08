@@ -82,28 +82,22 @@ namespace Stillborn.Web
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseCors(p => {
+                    p.AllowAnyOrigin();
+                    p.AllowAnyMethod();
+                    p.AllowAnyHeader();
+                });
+                app.UseDeveloperExceptionPage();
             }
             else
             {
                 app.UseHsts();
             }
-            app.UseCors(builder => builder.WithOrigins("http://localhost:44368")
-                           .AllowAnyHeader()
-                           .AllowAnyMethod());
             app.UseHttpsRedirection();
             app.UseDefaultFiles();
             
             app.UseStaticFiles();
 
-            //Это вроде как нужно перенести выше иначе авторизация работать не будет, но я пока в это не лезу, сами решите
-            app.UseAuthentication();
-
-
-
-            app.UseSignalR(routes =>
-            {
-                routes.MapHub<ChatHub>("/chat");
-            });
             app.Use(async (context, next) =>
             {
                 await next();
@@ -114,6 +108,16 @@ namespace Stillborn.Web
                     context.Request.Path = "/index.html";
                     await next();
                 }
+            });
+
+            //Это вроде как нужно перенести выше иначе авторизация работать не будет, но я пока в это не лезу, сами решите
+            app.UseAuthentication();
+
+
+
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<ChatHub>("/chat");
             });
 
             app.UseMvc(routes =>

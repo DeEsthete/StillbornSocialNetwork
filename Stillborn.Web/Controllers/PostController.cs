@@ -59,6 +59,5 @@ namespace Stillborn.Web.Controllers
         {
             return Ok(_repository.GetRepository<Post>().GetAll().Where(i=>i.WallId==id));
         }
-
     }
 }

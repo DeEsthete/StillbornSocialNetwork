@@ -32,7 +32,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div>\r\n    <ul class=\"menu\">\r\n        <li class=\"menuLi logoLi\">Stillborn</li>\r\n        <li class=\"menuLi\">\r\n            <a routerLink=\"/user-profile/{{userId}}\">\r\n                <img src=\"../assets/Img/SideBarMenu/home.svg\" alt=\"Profile\" class=\"sideBarIcon\"/>\r\n                Профиль\r\n            </a></li>\r\n        <li class=\"menuLi\">\r\n            <a routerLink=\"/chat-rooms/{{userId}}\">\r\n                <img src=\"../assets/Img/SideBarMenu/chat.svg\" alt=\"Chat\" class=\"sideBarIcon\" />\r\n                Сообщения\r\n            </a></li>\r\n        <li class=\"menuLi\">\r\n            <a routerLink=\"/friends/{{userId}}\">\r\n                <img src=\"../assets/Img/SideBarMenu/user.svg\" alt=\"Profile\" class=\"sideBarIcon\"/>\r\n                Друзья\r\n            </a></li>\r\n        <li class=\"menuLi\">\r\n            <a routerLink=\"/groups/{{userId}}\">\r\n                <img src=\"../assets/Img/SideBarMenu/users.svg\" alt=\"Profile\" class=\"sideBarIcon\"/>\r\n                Сообщества\r\n            </a></li>\r\n        <li class=\"menuLi\">\r\n            <a routerLink=\"/photos/{{userId}}\">\r\n                <img src=\"../assets/Img/SideBarMenu/picture.svg\" alt=\"Profile\" class=\"sideBarIcon\"/>\r\n                Фотографии\r\n            </a></li>\r\n    </ul>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div>\r\n    <ul class=\"menu\">\r\n        <li class=\"menuLi logoLi\">\r\n            <a routerLink=\"/authorization\">\r\n                Stillborn\r\n            </a></li>\r\n        <li class=\"menuLi\">\r\n            <a routerLink=\"/user-profile/{{userId}}\">\r\n                <img src=\"../assets/Img/SideBarMenu/home.svg\" alt=\"Profile\" class=\"sideBarIcon\"/>\r\n                Профиль\r\n            </a></li>\r\n        <li class=\"menuLi\">\r\n            <a routerLink=\"/chat-rooms/{{userId}}\">\r\n                <img src=\"../assets/Img/SideBarMenu/chat.svg\" alt=\"Chat\" class=\"sideBarIcon\" />\r\n                Сообщения\r\n            </a></li>\r\n        <li class=\"menuLi\">\r\n            <a routerLink=\"/friends/{{userId}}\">\r\n                <img src=\"../assets/Img/SideBarMenu/user.svg\" alt=\"Profile\" class=\"sideBarIcon\"/>\r\n                Друзья\r\n            </a></li>\r\n        <li class=\"menuLi\">\r\n            <a routerLink=\"/groups/{{userId}}\">\r\n                <img src=\"../assets/Img/SideBarMenu/users.svg\" alt=\"Profile\" class=\"sideBarIcon\"/>\r\n                Сообщества\r\n            </a></li>\r\n        <li class=\"menuLi\">\r\n            <a routerLink=\"/photos/{{userId}}\">\r\n                <img src=\"../assets/Img/SideBarMenu/picture.svg\" alt=\"Profile\" class=\"sideBarIcon\"/>\r\n                Фотографии\r\n            </a></li>\r\n    </ul>\r\n</div>");
 
 /***/ }),
 
@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"chatRoom\">\r\n  <div class=\"header\">\r\n    <span *ngFor=\"let userName of usersNames\">, {{ userName }}</span>\r\n  </div>\r\n  <div class=\"messages\">\r\n    <div class=\"message\" *ngFor=\"let message of messages\">\r\n      <span class=\"senderName\">{{ message.sender.nickName }}: </span>\r\n      <span class=\"acceptText\">{{ message.text }}</span>\r\n    </div>\r\n  </div>\r\n  <div class=\"createMessage\">\r\n    <input class=\"createText\" type=\"text\" [(ngModel)]=\"createText\">\r\n    <span class=\"sendButton\" (click)=\"sendMessage()\">Отправить</span>\r\n  </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"chatRoom\">\r\n  <div class=\"header\">\r\n    <span *ngFor=\"let userName of usersNames\">, {{ userName }}</span>\r\n  </div>\r\n  <div class=\"createMessage\">\r\n    <input class=\"inline form-control createText\" type=\"text\" [(ngModel)]=\"createText\">\r\n    <span class=\"button inline sendButton\" (click)=\"sendMessage()\">Отправить</span>\r\n  </div>\r\n  <div class=\"messages\">\r\n    <ng-container *ngFor=\"let message of messages\">\r\n      <div class=\"message acceptedMessage\">\r\n        <span class=\"senderName\">{{ message.sender.nickName }}: </span>\r\n        <span class=\"acceptText\">{{ message.text }}</span>\r\n      </div><br>\r\n    </ng-container>\r\n  </div>\r\n</div>");
 
 /***/ }),
 
@@ -110,7 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"postDiv container\">\r\n  <a routerLink=\"/user-profile/{{senderId}}\" class=\"postSender\">SenderName</a>\r\n  <span class=\"form-control postText\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit eligendi\r\n    architecto ipsam sapiente molestiae maxime quibusdam dignissimos dolorum optio. Qui veritatis dolore\r\n    voluptatibus? Expedita tempora id eius perspiciatis eveniet corporis! Lorem ipsum dolor sit amet consectetur\r\n    adipisicing elit. Reprehenderit perspiciatis, debitis voluptates minima molestiae delectus suscipit animi harum\r\n    dolorem maxime sapiente nihil reiciendis itaque quidem sunt voluptas possimus sit similique. Lorem ipsum dolor,\r\n    sit amet consectetur adipisicing elit. Harum minus a laboriosam hic inventore sit amet eaque aliquam doloribus\r\n    tenetur, ea quos adipisci, dolor rerum? Magnam qui blanditiis minus ab?</span>\r\n  <div class=\"postMedia\">\r\n    <!-- <span>ЯбеспонятиякакздесьотобразитьмедиаАААААААА</span> -->\r\n  </div>\r\n</div>\r\n<div class=\"postComments\">\r\n  <!--КОООООМЕНТЫ ????-->\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"postDiv container\">\r\n  <a routerLink=\"/user-profile/{{sender.id}}\" class=\"postSender\"> sender.nickName </a>\r\n  <span class=\"form-control postText\">{{ post.text }}</span>\r\n  <div class=\"postMedia\">\r\n    <!-- <span>ЯбеспонятиякакздесьотобразитьмедиаАААААААА</span> -->\r\n  </div>\r\n</div>\r\n<div class=\"postComments\">\r\n  <!--КОООООМЕНТЫ ????-->\r\n</div>");
 
 /***/ }),
 
@@ -136,7 +136,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"userPosts\">\r\n    <div  class=\"writePost container\"> <!--*ngIf=\"isMayEdit\"-->\r\n        <span class=\"writePostTitle\">Создайте свой новый пост здесь. </span>\r\n        <span class=\"errorMessage\" *ngIf=\"isError\">Похоже что вы сделали что-то не так =(</span><br>\r\n        <textarea class=\"form-control writePostText\" [(ngModel)]=\"post.text\" maxlength=\"3000\"></textarea>\r\n        <span class=\"addMediaButton button\">Добавить файл</span>\r\n        <span class=\"sendPostButton button\" (click)=\"createPost()\">Опубликовать</span>\r\n    </div>\r\n    <div class=\"userContact\"></div>\r\n    <div class=\"readPosts container\">\r\n        <app-post [post]=\"post\"></app-post>\r\n        <app-post [post]=\"post\"></app-post>\r\n        <app-post [post]=\"post\"></app-post>\r\n        <div *ngFor=\"let post of posts\">\r\n            <app-post [post]=\"post\"></app-post>\r\n        </div>\r\n    </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"userPosts\">\r\n    <div  class=\"writePost container\"> <!--*ngIf=\"isMayEdit\"-->\r\n        <span class=\"writePostTitle\">Создайте свой новый пост здесь. </span>\r\n        <span class=\"errorMessage\" *ngIf=\"isError\">Похоже что вы сделали что-то не так =(</span><br>\r\n        <textarea class=\"form-control writePostText\" [(ngModel)]=\"post.text\" maxlength=\"3000\"></textarea>\r\n        <span class=\"addMediaButton button\">Добавить файл</span>\r\n        <span class=\"sendPostButton button\" (click)=\"createPost()\">Опубликовать</span>\r\n    </div>\r\n    <div class=\"userContact\"></div>\r\n    <div class=\"readPosts container\">\r\n        <div *ngFor=\"let post of posts\">\r\n            <app-post [post]=\"post\"></app-post>\r\n        </div>\r\n    </div>\r\n</div>");
 
 /***/ }),
 
@@ -532,7 +532,8 @@ let UsersService = class UsersService {
         return this.http.get('/api/user/' + id);
     }
     signIn(user) {
-        return this.http.post('/api/user/signIn', user);
+        debugger;
+        return this.http.post('http://localhost:44368/api/user/login', user);
     }
     signUp(user) {
         this.http.post('/api/user/signUp', user);
@@ -766,6 +767,7 @@ let AuthorizationComponent = class AuthorizationComponent {
     ngOnInit() {
     }
     signIn() {
+        debugger;
         this.usersService.signIn(this.user).subscribe(result => this.goToProfile(result));
     }
     goToProfile(result) {
@@ -809,7 +811,7 @@ AuthorizationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvY2hhdC1yb29tL2NoYXQtcm9vbS5jb21wb25lbnQuY3NzIn0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".chatRoom{\r\n  min-height: 100%;\r\n   height: 100%;\r\n}\r\n.header{\r\n  border-bottom: 1px solid var(--border-color);\r\n}\r\n.inline{\r\n  display: inline-block;\r\n}\r\n.createText{\r\n  width: 80%;\r\n}\r\n.sendButton{\r\n  width: 17%;\r\n  text-align: center;\r\n}\r\n.message{\r\n  padding: 5px;\r\n  background: black;\r\n  border-radius: 10px;\r\n}\r\n.acceptedMessage{\r\n  background: var(--second-background-color);\r\n}\r\n.sendedMessage{\r\n  background: var(--purple);\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9jaGF0LXJvb20vY2hhdC1yb29tLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQkFBZ0I7R0FDZixZQUFZO0FBQ2Y7QUFDQTtFQUNFLDRDQUE0QztBQUM5QztBQUNBO0VBQ0UscUJBQXFCO0FBQ3ZCO0FBQ0E7RUFDRSxVQUFVO0FBQ1o7QUFDQTtFQUNFLFVBQVU7RUFDVixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLFlBQVk7RUFDWixpQkFBaUI7RUFDakIsbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSwwQ0FBMEM7QUFDNUM7QUFDQTtFQUNFLHlCQUF5QjtBQUMzQiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvY2hhdC1yb29tL2NoYXQtcm9vbS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNoYXRSb29te1xyXG4gIG1pbi1oZWlnaHQ6IDEwMCU7XHJcbiAgIGhlaWdodDogMTAwJTtcclxufVxyXG4uaGVhZGVye1xyXG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCB2YXIoLS1ib3JkZXItY29sb3IpO1xyXG59XHJcbi5pbmxpbmV7XHJcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG59XHJcbi5jcmVhdGVUZXh0e1xyXG4gIHdpZHRoOiA4MCU7XHJcbn1cclxuLnNlbmRCdXR0b257XHJcbiAgd2lkdGg6IDE3JTtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuLm1lc3NhZ2V7XHJcbiAgcGFkZGluZzogNXB4O1xyXG4gIGJhY2tncm91bmQ6IGJsYWNrO1xyXG4gIGJvcmRlci1yYWRpdXM6IDEwcHg7XHJcbn1cclxuLmFjY2VwdGVkTWVzc2FnZXtcclxuICBiYWNrZ3JvdW5kOiB2YXIoLS1zZWNvbmQtYmFja2dyb3VuZC1jb2xvcik7XHJcbn1cclxuLnNlbmRlZE1lc3NhZ2V7XHJcbiAgYmFja2dyb3VuZDogdmFyKC0tcHVycGxlKTtcclxufSJdfQ== */");
 
 /***/ }),
 
@@ -829,6 +831,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var src_app_services_message_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/message.service */ "./src/app/services/message.service.ts");
 /* harmony import */ var _aspnet_signalr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @aspnet/signalr */ "./node_modules/@aspnet/signalr/dist/esm/index.js");
+/* harmony import */ var src_app_Services_users_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/Services/users.service */ "./src/app/Services/users.service.ts");
+
 
 
 
@@ -836,9 +840,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ChatRoomComponent = class ChatRoomComponent {
-    constructor(chatRoomsService, messageService, route) {
+    constructor(chatRoomsService, messageService, usersService, route) {
         this.chatRoomsService = chatRoomsService;
         this.messageService = messageService;
+        this.usersService = usersService;
         this.route = route;
     }
     ngOnInit() {
@@ -858,25 +863,25 @@ let ChatRoomComponent = class ChatRoomComponent {
             .then(() => console.log('Connection started'))
             .catch(err => console.log('Error while starting connection: ' + err));
         this._hubConnection.on("Receive", (message) => {
-            let messageViewModel;
-            this.messages.push(messageViewModel);
+            this.messages.push(this.messageService.getMessageViewModel(message));
         });
     }
     sendMessage() {
-        let message = {
-            id: null,
-            chatRoomId: this.chatRoom.id,
-            senderId: localStorage.getItem("userId"),
-            text: this.createText,
-            contentId: null
-        };
-        //this.messages.push(message);
+        debugger;
+        let message;
+        message.id = 1;
+        message.chatRoomId = this.chatRoom.id;
+        message.senderId = localStorage.getItem("userId");
+        message.text = this.createText;
+        message.contentId = null;
+        this.messages.push(this.messageService.getMessageViewModel(message));
         this.messageService.sendMessage(message, this.chatRoom.id);
     }
 };
 ChatRoomComponent.ctorParameters = () => [
     { type: src_app_services_chat_rooms_service__WEBPACK_IMPORTED_MODULE_2__["ChatRoomsService"] },
     { type: src_app_services_message_service__WEBPACK_IMPORTED_MODULE_4__["MessageService"] },
+    { type: src_app_Services_users_service__WEBPACK_IMPORTED_MODULE_6__["UsersService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] }
 ];
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -1208,6 +1213,36 @@ ChatRoomsService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/services/contents.service.ts":
+/*!**********************************************!*\
+  !*** ./src/app/services/contents.service.ts ***!
+  \**********************************************/
+/*! exports provided: ContentsService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContentsService", function() { return ContentsService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let ContentsService = class ContentsService {
+    constructor() { }
+    getMedias(contentId) {
+        return null;
+    }
+};
+ContentsService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], ContentsService);
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/message.service.ts":
 /*!*********************************************!*\
   !*** ./src/app/services/message.service.ts ***!
@@ -1220,13 +1255,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MessageService", function() { return MessageService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _users_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./users.service */ "./src/app/services/users.service.ts");
+/* harmony import */ var _contents_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./contents.service */ "./src/app/services/contents.service.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
+
 
 
 let MessageService = class MessageService {
-    constructor() { }
+    constructor(http, usersService, contentsService) {
+        this.http = http;
+        this.usersService = usersService;
+        this.contentsService = contentsService;
+    }
     sendMessage(message, roomId) {
+        return this.http.post('/hubs/chat/', message);
+    }
+    getMessageViewModel(message) {
+        let myMessageViewModel;
+        myMessageViewModel.id = message.id;
+        myMessageViewModel.chatRoomId = message.id;
+        myMessageViewModel.text = message.text;
+        this.usersService.getUser(localStorage.getItem("userId")).subscribe(result => myMessageViewModel.sender = result);
+        this.contentsService.getMedias(message.contentId).subscribe(result => myMessageViewModel.medias = result);
+        return myMessageViewModel;
     }
 };
+MessageService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"] },
+    { type: _users_service__WEBPACK_IMPORTED_MODULE_2__["UsersService"] },
+    { type: _contents_service__WEBPACK_IMPORTED_MODULE_3__["ContentsService"] }
+];
 MessageService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
         providedIn: 'root'
@@ -1261,7 +1321,7 @@ let PostsService = class PostsService {
         return { id: null, senderId: senderId, text: "", contentId: null, likes: 0, comments: null };
     }
     getWallPosts(wallId) {
-        return this.http.get('/api/post/getPosts/' + wallId);
+        return this.http.get('/api/post/getWallPosts/' + wallId);
     }
     createPost(post, wallId) {
         this.http.post('/api/post/createPost/' + wallId, post);
@@ -1275,6 +1335,53 @@ PostsService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         providedIn: 'root'
     })
 ], PostsService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/users.service.ts":
+/*!*******************************************!*\
+  !*** ./src/app/services/users.service.ts ***!
+  \*******************************************/
+/*! exports provided: UsersService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UsersService", function() { return UsersService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
+
+let UsersService = class UsersService {
+    constructor(http) {
+        this.http = http;
+    }
+    initializeUser() {
+        return { id: null, login: null, password: null, nickName: null, isMan: true, email: null, contentId: null, wallId: null, medias: null, photoCount: null, friendsCount: null };
+    }
+    getUser(id) {
+        return this.http.get('/api/user/' + id);
+    }
+    signIn(user) {
+        debugger;
+        return this.http.post('http://localhost:44368/api/user/login', user);
+    }
+    signUp(user) {
+        this.http.post('/api/user/signUp', user);
+    }
+};
+UsersService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+UsersService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], UsersService);
 
 
 
