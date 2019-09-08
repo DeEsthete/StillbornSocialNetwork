@@ -30,14 +30,8 @@ namespace Stillborn.Web.Controllers
         }
 
         [HttpPost("/login")]
-        public async Task Login()
+        public async Task Login(LoginUserViewModel model)
         {
-            var model = new LoginUserViewModel
-            {
-                Login = Request.Form["username"],
-                Password = Request.Form["password"]
-            };
-
             var identity = await _userService.GetIdentityAsync(model);
             if (identity == null)
             {
