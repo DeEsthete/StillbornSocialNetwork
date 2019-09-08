@@ -29,11 +29,16 @@ namespace Stillborn.Web.Controllers
             _userService = userService;
         }
 
-        [HttpPost("/token")]
-        public async Task Token(LoginUserViewModel model)
+        [HttpPost("/login")]
+        public async Task Login()
         {
+            var model = new LoginUserViewModel
+            {
+                Login = Request.Form["username"],
+                Password = Request.Form["password"]
+            };
 
-            var identity = _userService.GetIdentity(model);
+            var identity = await _userService.GetIdentityAsync(model);
             if (identity == null)
             {
                 Response.StatusCode = 400;
@@ -63,7 +68,7 @@ namespace Stillborn.Web.Controllers
             await Response.WriteAsync(JsonConvert.SerializeObject(response, new JsonSerializerSettings { Formatting = Formatting.Indented }));
         }
 
-        
+
         ////отдать
         //[HttpGet("{id}")]
         //public IActionResult Get(string id = null)

@@ -14,7 +14,7 @@ namespace Stillborn.Services.Interfaces
         Task AddToBlockedAsync(string mainUserId, string secondUserId);
         Task AddToFriendAsync(string mainUserId, string secondUserId);
         Task<IEnumerable<User>> GetFriendsAsync(string id);
-        ClaimsIdentity GetIdentity(LoginUserViewModel model);
+        Task<ClaimsIdentity> GetIdentityAsync(LoginUserViewModel model);
         Task SetUserInfoAsync(UserInfoViewModel info);
         Task<UserInfoViewModel> GetUserInfoAsync(string id);
 

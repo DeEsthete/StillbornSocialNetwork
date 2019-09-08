@@ -117,11 +117,11 @@ namespace Stillborn.Services.Services
             return new UserInfoViewModel { Id = user.Id, NickName = user.NickName, Gender = user.Gender };
         }
 
-        public ClaimsIdentity GetIdentity(LoginUserViewModel model)
+        public async Task<ClaimsIdentity> GetIdentityAsync(LoginUserViewModel model)
         {
             User user = _userManager.Users.FirstOrDefault(u => u.UserName == model.Login);
 
-            if (user != null)
+            if (await _userManager.CheckPasswordAsync(user, model.Password))
             {
                 var claims = new List<Claim>
                 {
